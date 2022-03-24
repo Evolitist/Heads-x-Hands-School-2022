@@ -10,4 +10,8 @@
         Lorem Ipsum passages, and more recently with desktop publishing software
         like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it?</string>
     <string name="saveToFavorites">Отложить</string>
+    <string name="description">Описание</string>
+    <string name="promotionsByProduct">Акции по этому товару</string>
+    <string name="discountBestBuyDay">Скидка 45% по акции "Лучшая покупка дня"</string>
+    <string name="excerptPDF">ПОЧИТАТЬ ОТРЫВОК PDF (0.4 МБ)</string>
 </resources>
