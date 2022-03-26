@@ -57,13 +57,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/card_view" />
 
-            <include layout="@layout/card_view" />
+            <com.example.hw3.ContentCardView
+                android:id="@+id/picture1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-            <include layout="@layout/card_view" />
-
-            <include layout="@layout/card_view" />
+            <com.example.hw3.ContentCardView
+                android:id="@+id/picture2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.example.hw3.ContentCardView
+                android:id="@+id/picture3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.example.hw3.ContentCardView
+                android:id="@+id/picture4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 

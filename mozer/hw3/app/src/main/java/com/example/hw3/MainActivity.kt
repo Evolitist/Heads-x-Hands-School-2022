@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-
+        binding.picture1.setImage(R.drawable.image)
+        binding.picture2.setImage(R.drawable.image2)
+        binding.picture3.setImage(R.drawable.image3)
+        binding.picture4.setImage(R.drawable.image4)
     }
 }
