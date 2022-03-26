@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">hw3</string>
+    <string name="tab_1">tab 1</string>
+    <string name="tab_2">tab 2</string>
+    <string name="btnAction">action</string>
+    <string name="cardTitle">Card with content</string>
+    <string name="subtitle">Content description</string>
+    <string name="home">Home</string>
+    <string name="recent">Recent</string>
+    <string name="profile">Profile</string>
+    <string name="share">share</string>
 </resources>
