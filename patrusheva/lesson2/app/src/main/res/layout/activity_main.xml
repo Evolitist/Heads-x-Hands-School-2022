@@ -15,6 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@android:color/darker_gray"
+            android:src="@drawable/product_image"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +76,15 @@
             app:layout_constraintEnd_toStartOf="@id/productDiscount"
             app:layout_constraintStart_toEndOf="@id/productPrice"
             app:layout_constraintTop_toBottomOf="@id/productAuthor"/>
+
+        <TextView
+            android:id="@+id/productOldPriceCrossing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red_line"
+            app:layout_constraintEnd_toEndOf="@id/productOldPrice"
+            app:layout_constraintStart_toStartOf="@id/productOldPrice"
+            app:layout_constraintBaseline_toBaselineOf="@id/productOldPrice"/>
 
         <TextView
             android:id="@+id/productDiscount"
