@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="ContentCardView">
+        <attr name="title" format="string|reference" />
+        <attr name="subtitle" format="string|reference" />
+        <attr name="image" format="reference" />
+        <attr name="buttonText" format="string|reference" />
+    </declare-styleable>
+</resources>
