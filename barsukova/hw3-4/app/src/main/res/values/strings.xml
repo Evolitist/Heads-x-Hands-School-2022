@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lesson3</string>
+    <string name="tab1">Tab1</string>
+    <string name="tab2">Tab2</string>
+    <string name="share">Share</string>
+    <string name="card_with_content">Card with content</string>
+    <string name="content_description">Content description</string>
+    <string name="action">Action</string>
+    <string name="home">Home</string>
+    <string name="recent">Recent</string>
+    <string name="profile">Profile</string>
+</resources>
