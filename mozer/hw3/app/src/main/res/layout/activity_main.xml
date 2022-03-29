@@ -47,9 +47,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:backgroundTint="@color/white"
         android:layout_marginBottom="56dp"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -61,20 +61,22 @@
             <com.example.hw3.ContentCardView
                 android:id="@+id/picture1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <com.example.hw3.ContentCardView
                 android:id="@+id/picture2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
+
             <com.example.hw3.ContentCardView
                 android:id="@+id/picture3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
+
             <com.example.hw3.ContentCardView
                 android:id="@+id/picture4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 
@@ -82,14 +84,16 @@
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
 
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/blue"
         android:text="@string/share"
-        android:layout_gravity="end|bottom"
-        android:layout_marginBottom="@dimen/fab_margin_bottom"
         android:textSize="14sp"
-        app:icon="@drawable/ic_share" />
+        app:icon="@drawable/ic_share"
+        app:layout_anchor="@id/bottomBar"
+        app:layout_anchorGravity="end|top"
+        app:layout_dodgeInsetEdges="bottom" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomBar"
@@ -98,5 +102,6 @@
         android:layout_height="@dimen/bottomBar_height"
         android:layout_gravity="bottom"
         android:background="@color/dark_green"
+        app:layout_insetEdge="bottom"
         app:menu="@menu/bottom_navigation_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
