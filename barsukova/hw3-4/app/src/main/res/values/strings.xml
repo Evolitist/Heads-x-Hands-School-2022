@@ -9,4 +9,8 @@
     <string name="home">Home</string>
     <string name="recent">Recent</string>
     <string name="profile">Profile</string>
+    <string name="cat_1">Cat 1</string>
+    <string name="cat_2">Cat 2</string>
+    <string name="cat_3">Cat 3</string>
+    <string name="cat_4">Cat 4</string>
 </resources>

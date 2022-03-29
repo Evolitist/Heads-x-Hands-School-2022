@@ -42,15 +42,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="91dp"
+        android:layout_marginEnd="@dimen/margin_end_for_floating_action_button"
+        android:layout_marginBottom="@dimen/margin_bottom_for_floating_action_button"
         android:text="@string/share"
         app:icon="@drawable/ic_baseline_share_24" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="@dimen/height_bottom_navigation_view"
         android:layout_gravity="bottom"
         android:background="@color/teal_700"
         app:menu="@menu/navigation_items" />
@@ -59,20 +59,52 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="75dp">
+        android:layout_marginBottom="@dimen/margin_bottom_nested_scroll_view">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/item_card" />
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_content_card_view"
+                android:layout_marginVertical="@dimen/margin_vertical_content_card_view"
+                app:buttonText="@string/action"
+                app:image="@drawable/cat_1"
+                app:subtitle="@string/cat_1"
+                app:title="@string/card_with_content" />
 
-            <include layout="@layout/item_card" />
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_content_card_view"
+                android:layout_marginVertical="@dimen/margin_vertical_content_card_view"
+                app:buttonText="@string/action"
+                app:image="@drawable/cat_2"
+                app:subtitle="@string/cat_2"
+                app:title="@string/card_with_content" />
 
-            <include layout="@layout/item_card" />
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_content_card_view"
+                android:layout_marginVertical="@dimen/margin_vertical_content_card_view"
+                app:buttonText="@string/action"
+                app:image="@drawable/cat_3"
+                app:subtitle="@string/cat_3"
+                app:title="@string/card_with_content" />
 
-            <include layout="@layout/item_card" />
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_content_card_view"
+                android:layout_marginVertical="@dimen/margin_vertical_content_card_view"
+                app:buttonText="@string/action"
+                app:image="@drawable/cat_4"
+                app:subtitle="@string/cat_4"
+                app:title="@string/card_with_content" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

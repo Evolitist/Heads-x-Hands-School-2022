@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_radius">50dp</dimen>
+    <dimen name="elevation">4dp</dimen>
+    <dimen name="margin_start_for_card_content">15dp</dimen>
+    <dimen name="margin_end_for_card_content">15dp</dimen>
+    <dimen name="margin_start_for_card_description">15dp</dimen>
+    <dimen name="margin_end_for_card_description">15dp</dimen>
+    <dimen name="margin_start_for_card_image">15dp</dimen>
+    <dimen name="margin_end_for_card_image">15dp</dimen>
+    <dimen name="margin_start_for_card_button">15dp</dimen>
+    <dimen name="margin_end_for_card_button">15dp</dimen>
+    <dimen name="margin_end_for_floating_action_button">16dp</dimen>
+    <dimen name="margin_bottom_for_floating_action_button">91dp</dimen>
+    <dimen name="height_bottom_navigation_view">75dp</dimen>
+    <dimen name="margin_bottom_nested_scroll_view">75dp</dimen>
+    <dimen name="margin_horizontal_content_card_view">4dp</dimen>
+    <dimen name="margin_vertical_content_card_view">2dp</dimen>
+</resources>
