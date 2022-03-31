@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Homework</string>
+    <string name="title_home">home</string>
+    <string name="action">action</string>
+    <string name="title">Card with content</string>
+    <string name="description">Content description"</string>
+</resources>
