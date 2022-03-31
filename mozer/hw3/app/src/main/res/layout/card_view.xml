@@ -40,6 +40,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black_text"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle" />
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/picture"
             android:layout_width="0dp"
@@ -49,7 +60,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/subtitle" />
-        <!--            app:srcCompat="@drawable/image" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAction"

@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.hw3"
+        applicationId "com.example.hw4"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -29,13 +29,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-    implementation 'io.coil-kt:coil:1.4.0'
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'

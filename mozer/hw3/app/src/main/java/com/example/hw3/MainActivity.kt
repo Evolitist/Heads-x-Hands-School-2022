@@ -7,6 +7,7 @@ import com.example.hw3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val postAdapter = PostAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -14,9 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        binding.picture1.setImage(R.drawable.image)
-        binding.picture2.setImage(R.drawable.image2)
-        binding.picture3.setImage(R.drawable.image3)
-        binding.picture4.setImage(R.drawable.image4)
+        binding.recycler.adapter = postAdapter
+        postAdapter.submitList(MockProvider.getMockPosts())
     }
 }
