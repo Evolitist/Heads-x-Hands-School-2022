@@ -11,4 +11,5 @@
     <color name="dark_green">#006874</color>
     <color name="light_green">#CCF8FF</color>
     <color name="black_text">#191C1D</color>
+    <color name="divider">#1A212121</color>
 </resources>

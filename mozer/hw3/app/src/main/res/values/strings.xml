@@ -9,4 +9,6 @@
     <string name="recent">Recent</string>
     <string name="profile">Profile</string>
     <string name="share">share</string>
+    <string name="feed">Feed</string>
+    <string name="explore">Explore</string>
 </resources>

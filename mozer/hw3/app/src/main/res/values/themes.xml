@@ -13,4 +13,9 @@
         <item name="android:statusBarColor" >@android:color/transparent</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Hw3.SelectedCornerRadius">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
+    </style>
 </resources>

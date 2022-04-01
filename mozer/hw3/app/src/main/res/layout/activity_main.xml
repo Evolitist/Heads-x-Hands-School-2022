@@ -16,52 +16,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/dark_green"
-            app:title="Lesson3"
+            app:title="Lesson5"
             app:titleCentered="true"
             app:titleTextColor="@color/white" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_green"
-            app:tabGravity="center"
-            app:tabIndicatorColor="@color/white"
-            app:tabMinWidth="120dp"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/light_green">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_1" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tab_2" />
-        </com.google.android.material.tabs.TabLayout>
-
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_dodgeInsetEdges="bottom" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_marginBottom="@dimen/bottomBar_height"
+        android:paddingBottom="42dp"
+        android:clipToPadding="false"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="16dp"
-
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/blue"
-        android:text="@string/share"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_share"
+        app:icon="@drawable/ic_add"
         app:layout_anchor="@id/bottomBar"
         app:layout_anchorGravity="end|top"
         app:layout_dodgeInsetEdges="bottom" />
