@@ -6,7 +6,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="orange">#FF5722</color>
     <color name="white">#FFFFFF</color>
-    <color name="sea">#117677</color>
+    <color name="sea">#006874</color>
+    <color name="text_color">#191C1D</color>
+    <color name="new_black">#001F24</color>
+    <color name="mint">#90F1FF</color>
 </resources>

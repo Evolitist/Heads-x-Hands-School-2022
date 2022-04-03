@@ -22,34 +22,39 @@
         <com.google.android.material.tabs.TabLayout
             style="@style/Widget.MaterialComponents.TabLayout.Colored"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:tabGravity="center">
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tab 1"/>
+                android:text="@string/tab1"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tab 2"/>
+                android:text="@string/tab2"/>
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="120dp"
-        android:paddingBottom="@android:dimen/app_icon_size">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/bottom_navigation_height">
 
         <LinearLayout
             android:id="@+id/cards"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center" />
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/card_view"/>
+            <include layout="@layout/card_view"/>
+            <include layout="@layout/card_view"/>
+            <include layout="@layout/card_view"/>
+
+        </LinearLayout>
     </ScrollView>
 
 
@@ -58,7 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:text="Share"
+        android:text="@string/share"
+        android:backgroundTint="@color/mint"
         android:elevation="3dp"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="8dp"
@@ -66,13 +72,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/bottom_navigation_height"
         android:background="@color/sea"
         android:layout_gravity="bottom"
         app:menu="@menu/navigation"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white">
-
+        app:itemIconTint="@color/bottom_navigation_tint"
+        app:itemTextColor="@color/bottom_navigation_tint">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
