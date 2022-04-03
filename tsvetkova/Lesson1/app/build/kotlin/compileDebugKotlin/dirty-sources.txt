@@ -1,0 +1,1 @@
+/home/user/AndroidStudioProjects/Lesson1/app/src/main/java/com/example/lesson1/MainActivity.kt
