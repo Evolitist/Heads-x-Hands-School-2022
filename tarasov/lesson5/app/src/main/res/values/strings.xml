@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lesson5</string>
+    <string name="content_with_card">Content with card</string>
+    <string name="content_description">content description</string>
+    <string name="action">action</string>
+    <string name="feed">Feed</string>
+    <string name="explore">Explore</string>
+    <string name="profile">Profile</string>
+</resources>
