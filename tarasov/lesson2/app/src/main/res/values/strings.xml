@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">lesson2</string>
+    <string name="_361">361 р.</string>
+    <string name="_656">656 р.</string>
+    <string name="robert_van">Гулик Роберт ван</string>
+    <string name="red_pav">Красный павильон</string>
+    <string name="line"><u>__________</u></string>
+    <string name="pdf_0_4">ПОЧИТАТЬ ОТРЫВОК PDF(0.4МБ)</string>
+    <string name="sales"><b>Акции по этому товару</b></string>
+    <string name="_45"><b>45%</b></string>
+    <string name="sale45">Скидка 45% по акции "Лучшая покупка дня"</string>
+    <string name="_3_6">Осталось 3 дней 6 часов</string>
+    <string name="description"><b>Описание</b></string>
+    <string name="descriptionText">Райский остров известен в округе, как место, где обеспеченные
+        господа могут предаваться чревоугодию, азартным играм и проводить время в обществе
+        изысканных куртизанок. Судья Ли - человек строгих</string>
+    <string name="showMore">Показать полностью</string>
+</resources>
