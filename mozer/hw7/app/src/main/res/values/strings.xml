@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">hw7</string>
+    <string name="cardTitle">Header</string>
+    <string name="subtitle">Subhead</string>
+
+    <string name="profile">Profile</string>
+
+    <string name="feed">Feed</string>
+    <string name="profile_images">images</string>
+    <string name="profile_subscribers">subscribers</string>
+    <string name="profile_posts">posts</string>
+    <string name="subscribe">Subscribe</string>
+
 </resources>
