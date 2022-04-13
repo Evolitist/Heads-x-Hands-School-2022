@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Homework</string>
+    <string name="title_home">home</string>
+    <string name="action">action</string>
+    <string name="title">Card with content</string>
+    <string name="description">Content description"</string>
+    <string name="share">Share</string>
+    <string name="tab1">Tab 1</string>
+    <string name="tab2">Tab 2</string>
+</resources>
