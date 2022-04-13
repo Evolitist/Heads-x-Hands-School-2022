@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
             val typedText = binding.input.text
             binding.output.text = typedText
             Toast.makeText(this, "\"$typedText\" was typed", Toast.LENGTH_SHORT).show()
+            binding.input.setText("")
         }
     }
 }
