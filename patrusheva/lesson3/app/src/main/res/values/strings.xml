@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lesson3</string>
+    <string name="tab1_name">Tab 1</string>
+    <string name="tab2_name">Tab 2</string>
+    <string name="fab_text">Share</string>
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_recent">Recent</string>
+    <string name="menu_item_profile">Profile</string>
+</resources>
