@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">lesson2</string>
+    <string name="product_title">Красный павильон</string>
+    <string name="product_author">Роберт ван Гулик</string>
+    <string name="product_price">361 p.</string>
+    <string name="product_old_price">656 p.</string>
+    <string name="product_discount">-45%</string>
+    <string name="read_fragment">почитать отрывок pdf (0.4 мб)</string>
+    <string name="best_purchase_promotion_text">Скидка 45% по акции &quot;Лучшая покупка дня&quot;</string>
+    <string name="best_purchase_promotion_timer">Осталось 3 дней 6 часов</string>
+    <string name="product_promotions_title">Акции по этому товару</string>
+    <string name="description_title">Описание</string>
+    <string name="product_description">&quot;Райский остров&quot; известен в округе как место, где обеспеченные люди могут предаваться чвревоугодию, азартным играм и проводить время в обществе изысканных куртизанок.</string>
+</resources>
