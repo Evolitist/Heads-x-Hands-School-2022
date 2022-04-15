@@ -1,13 +1,16 @@
-package com.example.hw6
+package com.example.hw6.ui
 
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.MotionEventCompat.getActionMasked
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw6.databinding.ItemNoteBinding
+import com.example.hw6.model.Note
 
 class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallback) {
 
@@ -26,7 +29,9 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallba
             binding.root.setOnLongClickListener {
                 onItemClick?.invoke(item)
                 true
+
             }
+
         }
 
         override fun onLongClick(p0: View?): Boolean {

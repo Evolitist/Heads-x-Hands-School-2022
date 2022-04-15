@@ -1,4 +1,4 @@
-package com.example.hw6
+package com.example.hw6.model
 
 data class Note(
     val id: String,

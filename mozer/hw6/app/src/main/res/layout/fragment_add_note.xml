@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="180">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="180"
+            tools:text="New note text goes here... It can be multiline!" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="16dp"
+        app:icon="@drawable/ic_send" />
+</FrameLayout>
