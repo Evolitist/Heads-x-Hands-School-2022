@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hw6.databinding.FragmentAddNoteBinding
+import com.google.android.material.snackbar.Snackbar
 
 class AddNoteFragment : Fragment() {
 
@@ -30,8 +31,11 @@ class AddNoteFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        binding.fab.setOnClickListener {
+        viewModel.snackLiveData.observe(viewLifecycleOwner){
+            Snackbar.make(binding.root,"Note is empty",Snackbar.LENGTH_SHORT).show()
+        }
 
+        binding.fab.setOnClickListener {
             viewModel.addNote(binding.textInput.text.toString())
         }
     }
