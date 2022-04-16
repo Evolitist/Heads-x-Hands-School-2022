@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.hw6.R
 import com.example.hw6.databinding.FragmentListNotesBinding
+import com.google.android.material.transition.Hold
+import com.google.android.material.transition.MaterialElevationScale
 
 class ListNotesFragment : Fragment() {
 
@@ -18,6 +21,12 @@ class ListNotesFragment : Fragment() {
     private val noteAdapter = NoteAdapter()
     private val viewModel: ListNotesViewModel by viewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        exitTransition = MaterialElevationScale(false)
+        reenterTransition = MaterialElevationScale(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,26 +44,24 @@ class ListNotesFragment : Fragment() {
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = noteAdapter
                 .apply {
-                setOnItemClick {
-                    viewModel.deleteNotes(it)
-//                    deleteNote(it)
-//                    submitList(getNotes())
+                    setOnItemLongClick {
+                        viewModel.deleteNotes(it)
+                    }
                 }
-            }
-//            binding.fab.setOnClickListener {
-////                putNote(MockDataSource.generateNote())
-////                noteAdapter.submitList(getNotes())
-//                viewModel.addNote()
-//            }
 
             viewModel.notesLiveData.observe(viewLifecycleOwner) {
                 noteAdapter.submitList(it)
             }
 
-//            viewModel.loadNotes()
         }
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_listNotesFragment_to_addNoteFragment)
+            val extras = FragmentNavigatorExtras(view to "shared_element_container")
+            findNavController().navigate(
+                R.id.action_listNotesFragment_to_addNoteFragment,
+                null,
+                null,
+                extras
+            )
         }
     }
 }

@@ -2,10 +2,8 @@ package com.example.hw6.ui
 
 
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.MotionEventCompat.getActionMasked
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +12,10 @@ import com.example.hw6.model.Note
 
 class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallback) {
 
-    private var onItemClick: ((Note) -> Unit)? = null
+    private var onItemLongClick: ((Note) -> Unit)? = null
 
-    fun setOnItemClick(callback: (Note) -> Unit) {
-        onItemClick = callback
+    fun setOnItemLongClick(callback: (Note) -> Unit) {
+        onItemLongClick = callback
     }
 
     inner class NoteViewHolder(
@@ -27,7 +25,7 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallba
         fun bind(item: Note) {
             binding.cardText.text = item.text
             binding.root.setOnLongClickListener {
-                onItemClick?.invoke(item)
+                onItemLongClick?.invoke(item)
                 true
 
             }
