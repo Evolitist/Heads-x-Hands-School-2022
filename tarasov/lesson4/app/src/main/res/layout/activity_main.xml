@@ -45,10 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="#90F1FF"
+        android:backgroundTint="@color/fab_background"
         android:text="@string/share"
-        app:icon="@android:drawable/ic_menu_share"
-        app:iconTint="@color/black"
+        app:icon="@drawable/ic_baseline_share_24"
         app:layout_anchor="@id/bottom_nav"
         app:layout_anchorGravity="top|end"
         app:layout_insetEdge="bottom" />
@@ -58,7 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        app:layout_anchor="@+id/nestedScrollView"
         app:layout_anchorGravity="center"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
