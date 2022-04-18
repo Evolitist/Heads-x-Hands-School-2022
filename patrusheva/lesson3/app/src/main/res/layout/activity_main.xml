@@ -47,15 +47,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="120dp">
+            android:layout_marginBottom="@dimen/linear_layout_margin_bottom">
 
-            <include layout="@layout/item_card"/>
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/card_margin_horizontal"
+                android:layout_marginTop="@dimen/card_margin_top"
+                app:title="@string/card_title"
+                app:description="@string/card_description"
+                app:image="@drawable/card_image1"
+                app:buttonText="@string/card_button_text"/>
 
-            <include layout="@layout/item_card"/>
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/card_margin_horizontal"
+                android:layout_marginTop="@dimen/card_margin_top"
+                app:title="@string/card_title"
+                app:description="@string/card_description"
+                app:image="@drawable/card_image2"
+                app:buttonText="@string/card_button_text"/>
 
-            <include layout="@layout/item_card"/>
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/card_margin_horizontal"
+                android:layout_marginTop="@dimen/card_margin_top"
+                app:title="@string/card_title"
+                app:description="@string/card_description"
+                app:image="@drawable/card_image3"
+                app:buttonText="@string/card_button_text"/>
 
-            <include layout="@layout/item_card"/>
+            <com.example.lesson3.ContentCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/card_margin_horizontal"
+                android:layout_marginTop="@dimen/card_margin_top"
+                app:title="@string/card_title"
+                app:description="@string/card_description"
+                app:image="@drawable/card_image4"
+                app:buttonText="@string/card_button_text"/>
 
         </LinearLayout>
 
@@ -64,7 +96,7 @@
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/fab_margin"
         app:icon="@drawable/ic_share"
         android:text="@string/fab_text"
         app:layout_anchor="@id/bottomNavigation"

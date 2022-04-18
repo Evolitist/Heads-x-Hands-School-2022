@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ContentCardView">
+        <attr name="title" format="string|reference"/>
+        <attr name="description" format="string|reference"/>
+        <attr name="image" format="reference"/>
+        <attr name="buttonText" format="reference"/>
+    </declare-styleable>
+</resources>
