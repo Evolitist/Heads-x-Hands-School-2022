@@ -7,29 +7,27 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson6.databinding.ItemNoteBinding
 
-class NoteAdapter: ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteItemCallBack){
+class NoteAdapter (private val clickListener:((Note)->Unit)): ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteItemCallBack){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        //если бы во viewHolder мы передавали itemView:View
-        //val itemView = inflater.inflate(что-то там)
-        //либо binding.root
         val binding = ItemNoteBinding.inflate(inflater,parent, false)
-        //parent - чтобы вьюшка могла правильнов выставить себе layoutParams
-        //attachToParent = false - чтобы она не добавилась как дочерняя к Recycler
         return NoteViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), clickListener)
     }
 
     class NoteViewHolder (
         private val binding : ItemNoteBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind (item:Note) {
+        fun bind (item: Note, clickListener: (Note) -> Unit) {
             binding.textNote.text = item.text
+            binding.root.setOnClickListener {
+                clickListener(item)
+            }
         }
     }
 

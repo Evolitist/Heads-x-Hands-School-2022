@@ -13,16 +13,15 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val noteAdapter = NoteAdapter()
+    private val noteAdapter = NoteAdapter {
+            note: Note -> deleteNote(note)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.grid.apply {
-            //как грид, но элементы могут быть разной высоты (или длины)
-            //spanCount - количество столбцов
-            //Orientation - в какую сторону будет прокручиваться сетка
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = noteAdapter.apply {
                 submitList(getNotes())
@@ -40,16 +39,18 @@ class MainActivity : AppCompatActivity() {
             .all.map {
                 Note(it.key,it.value.toString())
             }.sortedByDescending { it.id }
-        //prefs - как map, но живет не в оперативке а где-то там
-        //map - вызывается на списке с одним типом и возвращает его с другим типом
-        //пробегает по списку, на каждом элементе вызывает свою лямбду и возвращает этот элемент с другим типом
-        //it - паарметр который передется в map  и это текущий элемент
-        //в pref все данные хранятся в структуре map  - ключ/значение
     }
 
     private fun putNote(note:Note){
         getSharedPreferences("prefs", MODE_PRIVATE).edit {
             putString(note.id, note.text)
         }
+    }
+
+    private fun deleteNote(note: Note){
+        getSharedPreferences("prefs", MODE_PRIVATE).edit {
+            remove(note.id)
+        }
+        noteAdapter.submitList(getNotes())
     }
 }
