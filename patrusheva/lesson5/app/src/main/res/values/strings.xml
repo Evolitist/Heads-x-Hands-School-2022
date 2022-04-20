@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lesson5</string>
+    <string name="fab_text">Share</string>
+    <string name="menu_item_feed">Feed</string>
+    <string name="menu_item_explore">Explore</string>
+    <string name="menu_item_profile">Profile</string>
+    <string name="card_header">Card with content</string>
+    <string name="card_subhead">Content description</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_margin_horizontal">16dp</dimen>
+    <dimen name="card_margin_top">16dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="card_header_margin_horizontal">16dp</dimen>
+    <dimen name="card_header_margin_top">12dp</dimen>
+    <dimen name="card_subhead_margin_bottom">12dp</dimen>
+    <dimen name="card_subhead_margin_horizontal">16dp</dimen>
+    <dimen name="card_text_margin">16dp</dimen>
+    <dimen name="recycler_margin_bottom">120dp</dimen>
+</resources>
