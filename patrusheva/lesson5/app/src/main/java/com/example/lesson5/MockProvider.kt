@@ -15,7 +15,7 @@ object MockProvider {
         ),
         Post(
             2,
-            "Some text here...",
+            "",
             "https://unsplash.com/photos/BHJs5TZ-Nt0/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8NXx8Y2F0fGVufDB8Mnx8fDE2NDg1NDE2NDI&force=true&w=640",
         ),
         Post(

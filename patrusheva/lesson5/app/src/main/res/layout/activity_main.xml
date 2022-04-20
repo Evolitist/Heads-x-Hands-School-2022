@@ -26,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/recycler_margin_bottom"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:layout_gravity="center_vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_post" />
 

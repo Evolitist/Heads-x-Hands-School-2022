@@ -41,8 +41,8 @@
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/divider"
+            android:layout_height="1dp"
+            android:background="@color/grey"
             app:layout_constraintBottom_toTopOf="@id/cardText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
