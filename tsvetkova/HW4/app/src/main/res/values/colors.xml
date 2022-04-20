@@ -11,4 +11,5 @@
     <color name="text_color">#191C1D</color>
     <color name="new_black">#001F24</color>
     <color name="mint">#90F1FF</color>
+    <color name="icon_mint">#CCF8FF</color>
 </resources>

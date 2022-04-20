@@ -23,6 +23,6 @@ class CustomCardView @JvmOverloads constructor(
 
 
     fun addImage(@DrawableRes id: Int) {
-        return binding.image.setImageResource(id)
+        binding.image.setImageResource(id)
     }
 }
