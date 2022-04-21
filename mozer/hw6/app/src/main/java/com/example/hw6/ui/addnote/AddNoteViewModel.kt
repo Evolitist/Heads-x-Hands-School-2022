@@ -1,11 +1,9 @@
-package com.example.hw6.ui
+package com.example.hw6.ui.addnote
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hw6.domain.AddNoteUseCase
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class AddNoteViewModel(

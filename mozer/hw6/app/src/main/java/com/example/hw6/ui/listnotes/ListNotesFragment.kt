@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -39,6 +41,16 @@ class ListNotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.searchFragment -> {
+                    findNavController().navigate(R.id.action_listNotesFragment_to_searchFragment)
+                    true
+                }
+                else -> false
+            }
+        }
 //        val noteTouchHelperCallback = NoteTouchHelperCallback()
 //        val noteTouchHelper = ItemTouchHelper(noteTouchHelperCallback)
         binding.grid.apply {

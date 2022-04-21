@@ -1,4 +1,4 @@
-package com.example.hw6.ui
+package com.example.hw6.ui.addnote
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +12,14 @@ import com.google.android.material.snackbar.Snackbar
 
 class AddNoteFragment : Fragment() {
 
-    lateinit var binding: FragmentAddNoteBinding
+    private lateinit var binding: FragmentAddNoteBinding
     private val viewModel: AddNoteViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddNoteBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -37,6 +37,10 @@ class AddNoteFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             viewModel.addNote(binding.textInput.text.toString())
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

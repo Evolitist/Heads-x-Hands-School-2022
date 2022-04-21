@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_listNotesFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_listNotesFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.example.hw6.ui.AddNoteFragment"
+        android:name="com.example.hw6.ui.addnote.AddNoteFragment"
         android:label="AddNoteFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.hw6.ui.searchnote.SearchNotesFragment"
+        android:label="SearchNotesFragment" />
 </navigation>
