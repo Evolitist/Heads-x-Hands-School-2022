@@ -1,4 +1,4 @@
-package com.example.hw6.ui
+package com.example.hw6.ui.listnotes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -16,13 +16,6 @@ class ListNotesViewModel(
 ) : ViewModel() {
 
     val notesLiveData = getNotesUseCase().asLiveData()
-
-//    fun loadNotes() = viewModelScope.launch{
-////        notesLiveData.value = getNotesUseCase()
-//        getNotesUseCase().collect {
-//            notesLiveData.value = it
-//        }
-//    }
 
     fun deleteNotes(note:Note) = viewModelScope.launch{
         delNotesUseCase(note)

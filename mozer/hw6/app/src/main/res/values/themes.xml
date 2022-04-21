@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="colorSurface">@color/surface_light</item>
         <item name="colorOnSurfaceVariant">@color/on_surface_variant_light</item>
+        <item name="colorOnSurface">@color/on_surface_light</item>
         <item name="colorError">@color/error</item>
         <item name="colorOnError">@color/on_error</item>
 

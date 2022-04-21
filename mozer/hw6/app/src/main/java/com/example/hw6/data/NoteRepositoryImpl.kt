@@ -5,26 +5,23 @@ import com.example.hw6.model.Note
 import kotlinx.coroutines.flow.Flow
 
 class NoteRepositoryImpl(
-    private val sharedPreferencesDataSource: SharedPreferencesDataSource = SharedPreferencesDataSource()
+    private val roomDataSource: RoomDataSource = RoomDataSource()
 ) : NoteRepository {
     override fun getNotes(): Flow<List<Note>> {
-        return sharedPreferencesDataSource.getNotes()
+        return roomDataSource.getNotes()
     }
 
     override suspend fun addNote(text: String): Note {
-//        val note = MockDataSource.generateNote(text)
-//        sharedPreferencesDataSource.putNote(note)
-//        return note
         val note = Note(
-            id = SystemClock.elapsedRealtime().toString(),
+            id = SystemClock.elapsedRealtime().toInt(),
             text = text
         )
-        sharedPreferencesDataSource.putNote(note)
+        roomDataSource.putNote(note)
         return note
     }
 
     override suspend fun deleteNote(note: Note) {
-        sharedPreferencesDataSource.deleteNote(note)
+        roomDataSource.deleteNote(note)
     }
 
 }

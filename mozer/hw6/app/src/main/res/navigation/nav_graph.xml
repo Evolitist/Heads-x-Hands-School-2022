@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/listNotesFragment"
-        android:name="com.example.hw6.ui.ListNotesFragment"
+        android:name="com.example.hw6.ui.listnotes.ListNotesFragment"
         android:label="ListNotesFragment" >
         <action
             android:id="@+id/action_listNotesFragment_to_addNoteFragment"
