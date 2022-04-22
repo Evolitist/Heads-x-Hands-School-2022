@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">lesson5</string>
+    <string name="content_with_card">Content with card</string>
+    <string name="content_description">content description</string>
+    <string name="action">action</string>
+    <string name="feed">Feed</string>
+    <string name="explore">Explore</string>
+    <string name="profile">Profile</string>
+    <string name="header">Header</string>
+    <string name="subhead">Subhead</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_12">12</string>
+    <string name="_5">5</string>
+    <string name="_16">16</string>
+    <string name="photos">photos</string>
+    <string name="subscribers">subscribers</string>
+    <string name="posts">posts</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="images">Images</string>
+</resources>
