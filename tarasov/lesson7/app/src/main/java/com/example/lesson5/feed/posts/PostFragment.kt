@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.lesson5.MockProvider
-import com.example.lesson5.R
 import com.example.lesson5.databinding.FragmentPostBinding
 
 /**
