@@ -1,13 +1,15 @@
-package com.example.hw7
+package com.example.hw7.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.hw7.model.Post
 import com.example.hw7.databinding.CardViewBinding
 
 class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
@@ -53,8 +55,8 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
             }
         }
 
-        override fun onClick(p0: View?) {
-            TODO("Not yet implemented")
+        override fun onClick(v: View?) {
+
         }
     }
 

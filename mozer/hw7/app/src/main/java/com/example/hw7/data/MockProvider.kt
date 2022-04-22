@@ -1,4 +1,6 @@
-package com.example.hw7
+package com.example.hw7.data
+
+import com.example.hw7.model.Post
 
 object MockProvider {
     fun getMockPosts() = listOf(

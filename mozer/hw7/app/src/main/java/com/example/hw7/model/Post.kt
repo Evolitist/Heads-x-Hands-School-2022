@@ -1,4 +1,4 @@
-package com.example.hw7
+package com.example.hw7.model
 
 data class Post(
     val id: Int,
