@@ -6,29 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.hw7.R
-import com.example.hw7.data.MockProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.hw7.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
-    private var binding: FragmentFeedBinding? = null
+    private lateinit var binding: FragmentFeedBinding
     private val postAdapter = PostAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFeedBinding.inflate(inflater, container, false)
-        return binding?.root
+        return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.recycler.apply {
+            adapter = postAdapter.apply {
 
-        binding?.recycler?.adapter = postAdapter.apply {
-            setOnItemClick {
-                findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToPostFragment(it.id))
+                setOnItemClick {
+                    findNavController().navigate(
+                        FeedFragmentDirections.actionFeedFragmentToPostFragment(
+                            it.id
+                        )
+                    )
+                }
             }
+            //addOnScrollListener(PaginationScrollListener())
         }
-        postAdapter.submitList(MockProvider.getMockPosts())
+        //postAdapter.submitList(MockProvider.getMockPosts())
     }
 }

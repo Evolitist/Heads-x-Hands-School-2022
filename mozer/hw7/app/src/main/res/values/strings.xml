@@ -7,8 +7,11 @@
 
     <string name="feed">Feed</string>
     <string name="profile_images">images</string>
+    <string name="profile_images_title">Images</string>
     <string name="profile_subscribers">subscribers</string>
     <string name="profile_posts">posts</string>
     <string name="subscribe">Subscribe</string>
+    <string name="edit">Edit</string>
+    <string name="logout">logout</string>
 
 </resources>

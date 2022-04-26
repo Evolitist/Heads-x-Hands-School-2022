@@ -4,12 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.hw7.model.Post
+import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
 
 class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
@@ -44,11 +43,11 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
             binding.cardText.isVisible = !item.text.isNullOrBlank()
             binding.cardText.text = item.text
 
-            binding.picture.isVisible = !item.imageURL.isNullOrBlank()
+            binding.picture.isVisible = !item.images.isNullOrEmpty()
             if(binding.picture.isVisible){
                 binding.cardText.maxLines = 4
             }
-            binding.picture.load(item.imageURL)
+            //binding.picture.load(item.images.first().sizes.url)
 
             binding.root.setOnClickListener{
                 onItemClick?.invoke(item)
