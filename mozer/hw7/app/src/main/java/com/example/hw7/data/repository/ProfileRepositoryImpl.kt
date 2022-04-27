@@ -4,8 +4,9 @@ import com.example.hw7.data.mappers.toProfile
 import com.example.hw7.domain.NanoPostApiService
 import com.example.hw7.domain.model.Profile
 import com.example.hw7.domain.repository.ProfileRepository
+import javax.inject.Inject
 
-class ProfileRepositoryImpl(
+class ProfileRepositoryImpl @Inject constructor(
     private val nanoPostApiService: NanoPostApiService
 ) : ProfileRepository {
 

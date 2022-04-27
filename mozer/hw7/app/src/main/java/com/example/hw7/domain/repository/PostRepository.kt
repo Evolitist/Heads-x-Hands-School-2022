@@ -4,5 +4,5 @@ import com.example.hw7.data.PagedDataResponse
 import com.example.hw7.domain.model.Post
 
 interface PostRepository {
-    suspend fun getPosts() : PagedDataResponse<List<Post>>
+    suspend fun getPosts() : List<Post>
 }

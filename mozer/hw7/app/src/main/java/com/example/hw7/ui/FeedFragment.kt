@@ -9,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw7.databinding.FragmentFeedBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
     private val postAdapter = PostAdapter()

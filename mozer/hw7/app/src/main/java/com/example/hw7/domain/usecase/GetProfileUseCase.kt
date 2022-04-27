@@ -4,10 +4,10 @@ import com.example.hw7.App
 import com.example.hw7.data.repository.ProfileRepositoryImpl
 import com.example.hw7.domain.NanoPostApiService
 import com.example.hw7.domain.model.Profile
+import javax.inject.Inject
 
-class GetProfileUseCase(
-    private val apiService: NanoPostApiService = App.instance.apiService,
-    private val profileRepository: ProfileRepositoryImpl = ProfileRepositoryImpl(apiService)
+class GetProfileUseCase @Inject constructor(
+    private val profileRepository: ProfileRepositoryImpl
 ) {
     suspend operator fun invoke(): Profile {
 

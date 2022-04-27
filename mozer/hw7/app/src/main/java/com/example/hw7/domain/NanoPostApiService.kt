@@ -14,5 +14,7 @@ interface NanoPostApiService {
     ): ApiProfile
 
     @GET("https://nanopost.evolitist.com/api/v1/posts/{profileId}")
-    suspend fun getPostsApi(): PagedDataResponse<List<ApiPost>>
+    suspend fun getPostsApi(
+        @Path("profileId") profileId:String
+    ): List<ApiPost>
 }
