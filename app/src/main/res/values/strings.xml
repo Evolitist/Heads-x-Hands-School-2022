@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HW5</string>
+    <string name="feed">Feed</string>
+    <string name="explore">Explore</string>
+    <string name="profile">Profile</string>
+    <string name="header">Header</string>
+    <string name="subhead">Subhead</string>
+    <string name="content_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+</resources>
