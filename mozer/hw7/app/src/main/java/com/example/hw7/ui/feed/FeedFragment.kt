@@ -1,19 +1,20 @@
-package com.example.hw7.ui
+package com.example.hw7.ui.feed
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.hw7.databinding.FragmentFeedBinding
+import com.example.hw7.ui.PostAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
+    private val viewModel: FeedViewModel by viewModels()
     private val postAdapter = PostAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,9 +27,9 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recycler.apply {
+        viewModel.loadPosts()
+        binding.feedList.apply {
             adapter = postAdapter.apply {
-
                 setOnItemClick {
                     findNavController().navigate(
                         FeedFragmentDirections.actionFeedFragmentToPostFragment(
@@ -38,6 +39,9 @@ class FeedFragment : Fragment() {
                 }
             }
             //addOnScrollListener(PaginationScrollListener())
+        }
+        viewModel.postsLiveData.observe(viewLifecycleOwner){
+            postAdapter.submitList(it)
         }
         //postAdapter.submitList(MockProvider.getMockPosts())
     }

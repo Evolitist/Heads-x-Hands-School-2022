@@ -1,5 +1,6 @@
 package com.example.hw7.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
+import java.text.SimpleDateFormat
 
 class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
 
@@ -23,7 +25,7 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
         val inflater = LayoutInflater.from(parent.context)
 
         return PostViewHolder(
-            CardViewBinding.inflate(inflater,parent,false)
+            CardViewBinding.inflate(inflater, parent, false)
         )
     }
 
@@ -38,18 +40,27 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
     ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
 
+        @SuppressLint("SimpleDateFormat")
         fun bind(item: Post) {
+            binding.profileImage.isVisible = !item.owner.avatarUrl.isNullOrBlank()
+            binding.profileImage.load(item.owner.avatarUrl)
+
+            binding.profileName.text = item.owner.displayName ?: item.owner.username
+
+            val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss")
+            val dateString = simpleDateFormat.format(item.dateCreated).toString()
+            binding.dateCreated.text = String.format(dateString)
 
             binding.cardText.isVisible = !item.text.isNullOrBlank()
             binding.cardText.text = item.text
-
             binding.picture.isVisible = !item.images.isNullOrEmpty()
-            if(binding.picture.isVisible){
+            if (binding.picture.isVisible) {
                 binding.cardText.maxLines = 4
+                binding.picture.load(item.images.last().sizes.first().url)
             }
-            //binding.picture.load(item.images.first().sizes.url)
 
-            binding.root.setOnClickListener{
+
+            binding.root.setOnClickListener {
                 onItemClick?.invoke(item)
             }
         }

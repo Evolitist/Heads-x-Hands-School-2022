@@ -1,8 +1,6 @@
 package com.example.hw7.domain.usecase
 
-import com.example.hw7.App
 import com.example.hw7.data.repository.ProfileRepositoryImpl
-import com.example.hw7.domain.NanoPostApiService
 import com.example.hw7.domain.model.Profile
 import javax.inject.Inject
 

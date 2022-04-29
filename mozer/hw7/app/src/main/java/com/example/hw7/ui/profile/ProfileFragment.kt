@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil.load
 import com.example.hw7.databinding.FragmentProfileBinding
+import com.example.hw7.domain.model.Profile
+import com.example.hw7.ui.ImagesAdapter
+import com.example.hw7.ui.PostAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +19,8 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private val viewModel: ProfileViewModel by viewModels()
+    private val postAdapter = PostAdapter()
+    private val imagesAdapter = ImagesAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,21 +32,35 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.loadPosts()
         viewModel.loadProfile()
 
-        viewModel.profileLiveData.observe(viewLifecycleOwner){
-            binding.profileImage.load(it.avatarSmall)
-            binding.profileName.text = it.displayName ?: it.username
-            binding.profileBio.text = it.bio
-            binding.imagesCount.text = it.imagesCount.toString()
-            binding.subscribersCount.text = it.subscribersCount.toString()
-            binding.postsCount.text = it.postsCount.toString()
+        binding.imagesList.apply {
+            adapter = imagesAdapter
+        }
+        viewModel.profileLiveData.observe(viewLifecycleOwner) {
+            setProfile(it)
+            imagesAdapter.submitList(it.images)
+        }
 
-            binding.item1.setImage(it.images.first().sizes.last().url)
-            binding.item2.setImage(it.images.get(1).sizes.last().url)
-            binding.item3.setImage(it.images.get(2).sizes.last().url)
-            binding.item4.setImage(it.images.get(3).sizes.last().url)
+        binding.feedList.apply {
+            adapter = postAdapter
+        }
+        viewModel.postsLiveData.observe(viewLifecycleOwner) {
+            postAdapter.submitList(it)
         }
     }
+
+    private fun setProfile(profile: Profile) {
+        binding.profileImage.isVisible = !profile.avatarSmall.isNullOrBlank()
+        binding.profileImage.load(profile.avatarSmall)
+
+        binding.profileName.text = profile.displayName ?: profile.username
+        binding.profileBio.text = profile.bio
+        binding.imagesCount.text = profile.imagesCount.toString()
+        binding.subscribersCount.text = profile.subscribersCount.toString()
+        binding.postsCount.text = profile.postsCount.toString()
+
+    }
+
 }

@@ -13,14 +13,15 @@ fun ApiPost.toPost(): Post {
             it.toImage()
         },
         likes = this.likes.toLike(),
-        comments = this.comments
     )
 }
 
 fun ApiOwner.toOwner(): Owner {
     return Owner(
         id = this.id,
-        userName = this.username,
+        username = this.username,
+        displayName = this.displayName,
+        avatarUrl = this.avatarUrl,
         subscribed = this.subscribed
     )
 }

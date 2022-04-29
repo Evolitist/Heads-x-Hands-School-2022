@@ -6,6 +6,6 @@ import com.squareup.moshi.JsonClass
 data class PagedDataResponse<T>(
     val count: Int,
     val total: Int,
-    val nextFrom: String?,
+    val offset: String?,
     val items: List<T>
 )

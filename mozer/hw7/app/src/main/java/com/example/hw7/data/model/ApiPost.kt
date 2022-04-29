@@ -10,5 +10,5 @@ data class ApiPost(
     val text: String,
     val images: List<ApiImage>,
     val likes: ApiLike,
-    val comments: Int
+    //val comments: Int
 )

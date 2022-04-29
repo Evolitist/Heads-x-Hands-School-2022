@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.example.hw7.ui.FeedFragment"
+        android:name="com.example.hw7.ui.feed.FeedFragment"
         android:label="FeedFragment" >
         <action
             android:id="@+id/action_feedFragment_to_postFragment"
