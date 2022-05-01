@@ -21,6 +21,7 @@ class ProfileFragment : Fragment() {
     private val viewModel: ProfileViewModel by viewModels()
     private val postAdapter = PostAdapter()
     private val imagesAdapter = ImagesAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,9 +32,9 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loadPosts()
-        viewModel.loadProfile()
+        viewModel.loadData()
 
         binding.imagesList.apply {
             adapter = imagesAdapter
@@ -47,11 +48,12 @@ class ProfileFragment : Fragment() {
             adapter = postAdapter
         }
         viewModel.postsLiveData.observe(viewLifecycleOwner) {
-            postAdapter.submitList(it)
+            postAdapter.submitData(viewLifecycleOwner.lifecycle,it)
         }
     }
 
     private fun setProfile(profile: Profile) {
+
         binding.profileImage.isVisible = !profile.avatarSmall.isNullOrBlank()
         binding.profileImage.load(profile.avatarSmall)
 

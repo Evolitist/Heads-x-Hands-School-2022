@@ -1,4 +1,4 @@
-package com.example.hw7.ui
+package com.example.hw7.ui.post
 
 import android.os.Bundle
 import android.view.LayoutInflater

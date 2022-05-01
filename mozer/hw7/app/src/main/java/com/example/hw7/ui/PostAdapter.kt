@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +14,9 @@ import coil.load
 import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
 import java.text.SimpleDateFormat
+import java.util.*
 
-class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
+class PostAdapter : PagingDataAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
 
     private var onItemClick: ((Post) -> Unit)? = null
 
@@ -30,24 +33,25 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(getItem(position))
+
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
 
     inner class PostViewHolder(
 
         private val binding: CardViewBinding
 
-    ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-
-        @SuppressLint("SimpleDateFormat")
         fun bind(item: Post) {
             binding.profileImage.isVisible = !item.owner.avatarUrl.isNullOrBlank()
             binding.profileImage.load(item.owner.avatarUrl)
 
             binding.profileName.text = item.owner.displayName ?: item.owner.username
 
-            val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss")
+            val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss", Locale.getDefault())
             val dateString = simpleDateFormat.format(item.dateCreated).toString()
             binding.dateCreated.text = String.format(dateString)
 
@@ -65,12 +69,10 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
             }
         }
 
-        override fun onClick(v: View?) {
-
-        }
     }
 
     private object PostItemCallback : DiffUtil.ItemCallback<Post>() {
+
         override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
             return oldItem.id == newItem.id
         }

@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/postFragment"
-        android:name="com.example.hw7.ui.PostFragment"
+        android:name="com.example.hw7.ui.post.PostFragment"
         android:label="PostFragment" >
         <argument
             android:name="postId"

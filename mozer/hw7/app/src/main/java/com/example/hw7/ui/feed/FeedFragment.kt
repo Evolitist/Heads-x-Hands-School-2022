@@ -13,9 +13,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FeedFragment : Fragment() {
+
     private lateinit var binding: FragmentFeedBinding
     private val viewModel: FeedViewModel by viewModels()
     private val postAdapter = PostAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,11 +40,10 @@ class FeedFragment : Fragment() {
                     )
                 }
             }
-            //addOnScrollListener(PaginationScrollListener())
         }
-        viewModel.postsLiveData.observe(viewLifecycleOwner){
-            postAdapter.submitList(it)
+
+        viewModel.postsLiveData.observe(viewLifecycleOwner) {
+            postAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
-        //postAdapter.submitList(MockProvider.getMockPosts())
     }
 }
