@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val noteAdapter = NoteAdapter {
-            note: Note -> deleteNote(note)
-    }
+    private val noteAdapter = NoteAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,30 +22,33 @@ class MainActivity : AppCompatActivity() {
         binding.grid.apply {
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = noteAdapter.apply {
+                setOnItemClick {
+                    deleteNote(it)
+                }
                 submitList(getNotes())
             }
         }
 
-        binding.fab.setOnClickListener{
+        binding.fab.setOnClickListener {
             putNote(MockProvider.generateNote())
             noteAdapter.submitList(getNotes())
         }
     }
 
-    private fun getNotes(): List <Note> {
+    private fun getNotes(): List<Note> {
         return getSharedPreferences("prefs", MODE_PRIVATE)
             .all.map {
-                Note(it.key,it.value.toString())
+                Note(it.key, it.value.toString())
             }.sortedByDescending { it.id }
     }
 
-    private fun putNote(note:Note){
+    private fun putNote(note: Note) {
         getSharedPreferences("prefs", MODE_PRIVATE).edit {
             putString(note.id, note.text)
         }
     }
 
-    private fun deleteNote(note: Note){
+    private fun deleteNote(note: Note) {
         getSharedPreferences("prefs", MODE_PRIVATE).edit {
             remove(note.id)
         }

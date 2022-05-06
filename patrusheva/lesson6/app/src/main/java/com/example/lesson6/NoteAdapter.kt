@@ -7,23 +7,29 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson6.databinding.ItemNoteBinding
 
-class NoteAdapter (private val clickListener:((Note)->Unit)): ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteItemCallBack){
+class NoteAdapter() : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteItemCallBack) {
+
+    lateinit var clickListener: ((Note) -> Unit)
+
+    fun setOnItemClick(callback: (Note) -> Unit) {
+        clickListener = callback
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemNoteBinding.inflate(inflater,parent, false)
+        val binding = ItemNoteBinding.inflate(inflater, parent, false)
         return NoteViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
+        holder.bind(getItem(position))
     }
 
-    class NoteViewHolder (
-        private val binding : ItemNoteBinding,
+    inner class NoteViewHolder(
+        private val binding: ItemNoteBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind (item: Note, clickListener: (Note) -> Unit) {
+        fun bind(item: Note) {
             binding.textNote.text = item.text
             binding.root.setOnClickListener {
                 clickListener(item)
