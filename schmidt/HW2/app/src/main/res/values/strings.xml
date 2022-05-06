@@ -10,5 +10,5 @@
     <string name="Part_read">Прочитать отрывок в PDF(0.4MB)</string>
     <string name="Product">Акция по этому товару</string>
     <string name="left">Осталось 3 дня 6 часов</string>
-    <string name="bestbook">Скидка 45% по акции Лучшая покупка дня</string>
+    <string name="best_book">Скидка 45% по акции Лучшая покупка дня</string>
 </resources>
