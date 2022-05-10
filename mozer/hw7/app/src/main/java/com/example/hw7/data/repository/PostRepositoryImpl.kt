@@ -19,12 +19,12 @@ import javax.inject.Inject
 class PostRepositoryImpl @Inject constructor(
     private val nanoPostApiService: NanoPostApiService
 ) : PostRepository {
-    //    override suspend fun getPosts(profileId: String, count: Int, offset: String): List<Post> {
-//        return nanoPostApiService.getPosts(profileId = "evo", count, offset).items.map {
-//            it.toPost()
-//        }
-//
-//    }
+
+    override suspend fun getPost(postId: String): Post {
+        return nanoPostApiService.getPost(postId).toPost()
+
+    }
+
     override suspend fun getPosts(
         profileId: String,
         count: Int,

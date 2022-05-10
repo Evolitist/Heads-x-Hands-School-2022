@@ -30,6 +30,7 @@ class FeedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadPosts()
+
         binding.feedList.apply {
             adapter = postAdapter.apply {
                 setOnItemClick {

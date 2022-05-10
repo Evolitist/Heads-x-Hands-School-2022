@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/feedFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.example.hw7.ui.feed.FeedFragment"
-        android:label="FeedFragment" >
+        android:label="FeedFragment">
         <action
             android:id="@+id/action_feedFragment_to_postFragment"
             app:destination="@id/postFragment" />
@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/postFragment"
         android:name="com.example.hw7.ui.post.PostFragment"
-        android:label="PostFragment" >
+        android:label="PostFragment">
         <argument
             android:name="postId"
             app:argType="string" />
@@ -24,4 +24,12 @@
         android:id="@+id/profileFragment"
         android:name="com.example.hw7.ui.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.hw7.ui.auth.AuthFragment"
+        android:label="AuthFragment" >
+        <action
+            android:id="@+id/action_authFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
 </navigation>

@@ -30,13 +30,13 @@
             android:layout_height="40dp"
             android:layout_margin="16dp"
             android:scaleType="centerCrop"
-            tools:src="@color/black"
             android:theme="@style/Theme.Hw7.CornerSize50Percent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/black" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/title"
+            android:id="@+id/profile_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/subtitle"
+            android:id="@+id/date_created"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -58,7 +58,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/profile_name" />
 
         <View
             android:id="@+id/divider"
@@ -68,7 +68,7 @@
             android:background="@color/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subtitle" />
+            app:layout_constraintTop_toBottomOf="@id/date_created" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cardText"
@@ -76,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:ellipsize="end"
-
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

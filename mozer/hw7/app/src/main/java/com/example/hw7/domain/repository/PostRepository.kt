@@ -5,6 +5,7 @@ import com.example.hw7.domain.model.Post
 import kotlinx.coroutines.flow.Flow
 
 interface PostRepository {
-    //    suspend fun getPosts(profileId: String, count: Int, offset: String): List<Post>
+
+    suspend fun getPost(postId: String): Post
     suspend fun getPosts(profileId: String, count: Int, offset: String): Flow<PagingData<Post>>
 }

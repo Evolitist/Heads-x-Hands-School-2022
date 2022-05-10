@@ -9,19 +9,19 @@ import retrofit2.http.Query
 
 interface NanoPostApiService {
 
-    @GET("https://nanopost.evolitist.com/api/v1/profile/{profileId}")
+    @GET("profile/{profileId}")
     suspend fun getProfile(
         @Path("profileId") profileId: String
     ): ApiProfile
 
-    @GET("https://nanopost.evolitist.com/api/v1/posts/{profileId}")
+    @GET("posts/{profileId}")
     suspend fun getPosts(
         @Path("profileId") profileId: String,
         @Query("count") count: Int,
         @Query("offset") offset: String?
     ): PagedDataResponse<ApiPost>
 
-    @GET("https://nanopost.evolitist.com/api/v1/post/{postId}")
+    @GET("post/{postId}")
     suspend fun getPost(
         @Path("postId") postId: String
     ): ApiPost

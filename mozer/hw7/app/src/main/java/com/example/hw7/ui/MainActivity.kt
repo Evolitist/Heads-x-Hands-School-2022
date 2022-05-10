@@ -2,19 +2,35 @@ package com.example.hw7.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.hw7.R
 import com.example.hw7.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
+
+    private val navHostFragment by lazy {
+        binding.navHostFragment.getFragment<NavHostFragment>()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.navigationView.setupWithNavController(binding.navHostFragment.getFragment<NavHostFragment>().navController)
+        binding.navigationView.setupWithNavController(navHostFragment.navController)
+
+        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            binding.navigationView.isVisible = destination.id != R.id.authFragment
+        }
+
     }
 }
