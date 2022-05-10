@@ -17,8 +17,6 @@
     <dimen name="grey_rectangle_height">90dp</dimen>
     <dimen name="margin_top_grey_rectangle">16dp</dimen>
     <dimen name="circle_diameter">40dp</dimen>
-    <dimen name="margin_top_circle">8dp</dimen>
-    <dimen name="margin_start_circle">8dp</dimen>
     <dimen name="margin_start_theBestPay">16dp</dimen>
     <dimen name="margin_end_theBestPay">8dp</dimen>
     <dimen name="margin_top_timer">8dp</dimen>
