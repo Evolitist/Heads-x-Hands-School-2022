@@ -1,6 +1,6 @@
 package com.example.hw7.ui.auth
 
-enum class CheckUsernameResult {
+enum class ValidatePasswordResult {
 
     TooShort,
     TooLong,

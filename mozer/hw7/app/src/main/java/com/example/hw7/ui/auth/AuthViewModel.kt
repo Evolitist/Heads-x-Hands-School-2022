@@ -26,11 +26,11 @@ class AuthViewModel @Inject constructor(
     private val _checkUsernameApiLiveData = MutableLiveData<CheckUsernameResponse>()
     val checkUsernameApiLiveData: LiveData<CheckUsernameResponse> = _checkUsernameApiLiveData
 
-    private val _checkUsernameLiveData = MutableLiveData<CheckUsernameResult>()
-    val checkUsernameLiveData: LiveData<CheckUsernameResult> = _checkUsernameLiveData
+    private val _validateUsernameLiveData = MutableLiveData<ValidateUsernameResult>()
+    val validateUsernameLiveData: LiveData<ValidateUsernameResult> = _validateUsernameLiveData
 
-    private val _checkPasswordLiveData = MutableLiveData<CheckPasswordResult>()
-    val checkPasswordLiveData: LiveData<CheckPasswordResult> = _checkPasswordLiveData
+    private val _validatePasswordLiveData = MutableLiveData<ValidatePasswordResult>()
+    val validatePasswordLiveData: LiveData<ValidatePasswordResult> = _validatePasswordLiveData
 
     private val _navigateLiveData = MutableLiveData<Any>()
     val navigateLiveData: LiveData<Any> = _navigateLiveData
@@ -64,11 +64,11 @@ class AuthViewModel @Inject constructor(
     private fun validatePassword(): Boolean {
         return when {
             _password.length < 3 -> {
-                _checkPasswordLiveData.value = CheckPasswordResult.TooShort
+                _validatePasswordLiveData.value = ValidatePasswordResult.TooShort
                 false
             }
             _password.length > 16 -> {
-                _checkPasswordLiveData.value = CheckPasswordResult.TooLong
+                _validatePasswordLiveData.value = ValidatePasswordResult.TooLong
                 false
             }
             else -> {
@@ -89,16 +89,16 @@ class AuthViewModel @Inject constructor(
     private fun validateUsername(): Boolean {
         return when {
             _username.length < 3 -> {
-                _checkUsernameLiveData.value = CheckUsernameResult.TooShort
+                _validateUsernameLiveData.value = ValidateUsernameResult.TooShort
                 false
             }
 
             _username.length > 16 -> {
-                _checkUsernameLiveData.value = CheckUsernameResult.TooLong
+                _validateUsernameLiveData.value = ValidateUsernameResult.TooLong
                 false
             }
             regex.matches(_username) -> {
-                _checkUsernameLiveData.value = CheckUsernameResult.InvalidCharacters
+                _validateUsernameLiveData.value = ValidateUsernameResult.InvalidCharacters
                 false
             }
             else -> {

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.hw7.R
 import com.example.hw7.data.model.CheckUsernameResultApi
 import com.example.hw7.databinding.FragmentAuthBinding
+import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,19 +47,8 @@ class AuthFragment : Fragment() {
             viewModel.onContinueClicked()
         }
 
-        binding.tiLogin.setOnEditorActionListener { view, actionId, keyEvent ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                viewModel.onContinueClicked()
-                true
-            } else false
-        }
-
-        binding.tiPassword.setOnEditorActionListener { view, actionId, keyEvent ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                viewModel.onContinueClicked()
-                true
-            } else false
-        }
+        binding.tiLogin.actionListener(viewModel)
+        binding.tiPassword.actionListener(viewModel)
 
         viewModel.navigateLiveData.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_authFragment_to_feedFragment)
@@ -68,15 +58,15 @@ class AuthFragment : Fragment() {
             binding.password.error = "Password is incorrect"
         }
 
-        viewModel.checkUsernameLiveData.observe(viewLifecycleOwner) {
+        viewModel.validateUsernameLiveData.observe(viewLifecycleOwner) {
             when (it) {
-                CheckUsernameResult.TooShort -> {
+                ValidateUsernameResult.TooShort -> {
                     binding.login.error = "Username must be longer than 3 characters"
                 }
-                CheckUsernameResult.TooLong -> {
+                ValidateUsernameResult.TooLong -> {
                     binding.login.error = "Username must be shorter than 16 characters"
                 }
-                CheckUsernameResult.InvalidCharacters -> {
+                ValidateUsernameResult.InvalidCharacters -> {
                     binding.login.error = "Username contains invalid characters"
                 }
 
@@ -86,12 +76,12 @@ class AuthFragment : Fragment() {
             }
         }
 
-        viewModel.checkPasswordLiveData.observe(viewLifecycleOwner) {
+        viewModel.validatePasswordLiveData.observe(viewLifecycleOwner) {
             when (it) {
-                CheckPasswordResult.TooShort -> {
+                ValidatePasswordResult.TooShort -> {
                     binding.password.error = "Password must be longer than 3 characters"
                 }
-                CheckPasswordResult.TooLong -> {
+                ValidatePasswordResult.TooLong -> {
                     binding.password.error = "Username must be shorter than 16 characters"
                 }
                 else -> {
@@ -123,5 +113,14 @@ class AuthFragment : Fragment() {
                 }
             }
         }
+    }
+}
+
+fun TextInputEditText.actionListener(viewModel: AuthViewModel) {
+    this.setOnEditorActionListener { view, actionId, keyEvent ->
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+            viewModel.onContinueClicked()
+            true
+        } else false
     }
 }
