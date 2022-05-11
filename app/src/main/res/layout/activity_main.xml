@@ -36,12 +36,12 @@
             android:id="@+id/share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_share_24"
-            android:backgroundTint="@color/white"
             android:layout_marginEnd="@dimen/default_margin_end"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_share_24"
             app:layout_constraintBottom_toBottomOf="@+id/title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/title"/>
+            app:layout_constraintTop_toTopOf="@+id/title" />
 
         <TextView
             android:id="@+id/author"
@@ -92,18 +92,17 @@
 
         <TextView
             android:id="@+id/sale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/red_rectangle_width"
+            android:layout_height="@dimen/red_rectangle_height"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/red_background"
+            android:gravity="center"
             android:text="@string/sale"
             android:textColor="@color/white"
             android:textSize="@dimen/sale_text"
-            android:background="@drawable/red_background"
-            android:paddingStart="15dp"
-            android:paddingTop="2dp"
-            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/price"
             app:layout_constraintStart_toEndOf="@+id/old_price"
-            app:layout_constraintTop_toTopOf="@+id/price"
-            app:layout_constraintBottom_toBottomOf="@+id/price" />
+            app:layout_constraintTop_toTopOf="@+id/price" />
 
 
         <include
@@ -119,13 +118,13 @@
 
         <TextView
             android:id="@+id/promotion"
+            style="@style/SubtitleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin_start"
-            android:layout_marginEnd="@dimen/default_margin_end"
             android:layout_marginTop="@dimen/margin_top_promotion"
+            android:layout_marginEnd="@dimen/default_margin_end"
             android:text="@string/promotion"
-            style="@style/SubtitleText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_pdf" />
@@ -133,22 +132,22 @@
         <include
             android:id="@+id/promotion_details"
             layout="@layout/promotion"
-            android:layout_height="@dimen/grey_rectangle_height"
             android:layout_width="@dimen/grey_rectangle_width"
+            android:layout_height="@dimen/grey_rectangle_height"
             android:layout_marginTop="@dimen/margin_top_grey_rectangle"
             app:layout_constraintStart_toStartOf="@+id/promotion"
-            app:layout_constraintTop_toBottomOf="@+id/promotion"/>
+            app:layout_constraintTop_toBottomOf="@+id/promotion" />
 
 
         <TextView
             android:id="@+id/description"
+            style="@style/SubtitleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin_start"
             android:layout_marginTop="@dimen/margin_top_description"
             android:layout_marginEnd="@dimen/default_margin_end"
             android:text="@string/description"
-           style="@style/SubtitleText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/promotion_details" />

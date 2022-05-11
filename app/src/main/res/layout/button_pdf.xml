@@ -9,17 +9,17 @@
         android:layout_height="wrap_content"
         android:text="@string/pdf"
         android:textAllCaps="true"
-        android:textColor="@color/blue"/>
+        android:textColor="@color/blue" />
 
     <Space
         android:layout_width="3dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
         android:text="@string/pdf_size"
-        android:textColor="@color/blue"/>
+        android:textColor="@color/blue"
+        android:textSize="12sp" />
 
 </LinearLayout>

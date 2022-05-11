@@ -6,8 +6,4 @@
         android:endColor="#000000"
         android:startColor="#000000" />
 
-    <size
-        android:width="@dimen/circle_diameter"
-        android:height="@dimen/circle_diameter" />
-
 </shape>

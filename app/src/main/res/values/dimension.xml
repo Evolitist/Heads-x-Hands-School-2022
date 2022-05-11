@@ -18,7 +18,6 @@
     <dimen name="margin_top_grey_rectangle">16dp</dimen>
     <dimen name="circle_diameter">40dp</dimen>
     <dimen name="margin_start_theBestPay">16dp</dimen>
-    <dimen name="margin_end_theBestPay">8dp</dimen>
     <dimen name="margin_top_timer">8dp</dimen>
     <dimen name="margin_top_description">24dp</dimen>
     <dimen name="margin_top_text">8dp</dimen>

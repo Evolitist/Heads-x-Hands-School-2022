@@ -5,7 +5,4 @@
         android:startColor="@color/light_grey"
         android:endColor="@color/light_grey"/>
 
-    <size
-        android:height="@dimen/grey_rectangle_height"
-        android:width="@dimen/grey_rectangle_width"/>
 </shape>
