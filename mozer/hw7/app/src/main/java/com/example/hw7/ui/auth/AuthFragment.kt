@@ -34,6 +34,10 @@ class AuthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (viewModel.haveToken()) {
+            findNavController().navigate(R.id.action_authFragment_to_feedFragment)
+        }
+
         binding.password.isVisible = false
 
         binding.tiLogin.doAfterTextChanged {
@@ -69,7 +73,6 @@ class AuthFragment : Fragment() {
                 ValidateUsernameResult.InvalidCharacters -> {
                     binding.login.error = "Username contains invalid characters"
                 }
-
                 else -> {
                     throw IllegalStateException("Something went wrong")
                 }
@@ -117,7 +120,7 @@ class AuthFragment : Fragment() {
 }
 
 fun TextInputEditText.actionListener(viewModel: AuthViewModel) {
-    this.setOnEditorActionListener { view, actionId, keyEvent ->
+    this.setOnEditorActionListener { _, actionId, _ ->
         if (actionId == EditorInfo.IME_ACTION_DONE) {
             viewModel.onContinueClicked()
             true

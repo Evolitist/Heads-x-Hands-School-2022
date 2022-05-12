@@ -6,10 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hw7.data.model.CheckUsernameResponse
 import com.example.hw7.data.model.CheckUsernameResultApi
-import com.example.hw7.domain.usecase.AddTokenUseCase
-import com.example.hw7.domain.usecase.CheckUsernameUseCase
-import com.example.hw7.domain.usecase.AuthorizationUseCase
-import com.example.hw7.domain.usecase.RegistrationUseCase
+import com.example.hw7.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okio.IOException
@@ -20,7 +17,8 @@ class AuthViewModel @Inject constructor(
     private val checkUsernameUseCase: CheckUsernameUseCase,
     private val authorizationUseCase: AuthorizationUseCase,
     private val registrationUseCase: RegistrationUseCase,
-    private val addTokenUseCase: AddTokenUseCase
+    private val addTokenUseCase: AddTokenUseCase,
+    private val getTokenUseCase: GetTokenUseCase
 ) : ViewModel() {
 
     private val _checkUsernameApiLiveData = MutableLiveData<CheckUsernameResponse>()
@@ -42,7 +40,7 @@ class AuthViewModel @Inject constructor(
 
     private var _password: String = ""
 
-    private val regex = "[a-z],[_],[.]".toRegex()
+    private val regex = "[a-z_.]".toRegex()
 
     fun onUsernameChanged(username: String) {
         _username = username
@@ -114,8 +112,7 @@ class AuthViewModel @Inject constructor(
                     val token = authorizationUseCase(username, password)
                     addTokenUseCase(token.token)
                     _navigateLiveData.value = Any()
-                }
-                catch (e: IOException){
+                } catch (e: IOException) {
                     _exceptionLiveData.value = Any()
                 }
             }
@@ -132,4 +129,7 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun haveToken(): Boolean {
+        return getTokenUseCase() != null
+    }
 }
