@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Homework 5</string>
+    <string name="add">+</string>
+    <string name="read">Читать полностью</string>
+    <string name="action">Action</string>
+    <string name="share">Share</string>
+    <string name="card_with_content">Card with content</string>
+    <string name="content_description">Content description</string>
+    <string name="feed">Feed</string>
+    <string name="explore">Explore</string>
+    <string name="profile">Profile</string>
+    <string name="long_text">Some very long text that probably won\'t fit on a single line. Some very long text that probably won\'t fit on a single line. Some very long text that probably won\'t fit on a single line. Some very long text that probably w...</string>
+</resources>
