@@ -32,7 +32,7 @@ class PostFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-        binding.cardText.text = MockProvider.getMockPosts().get(args.postId-1).text
-        binding.picture.load(MockProvider.getMockPosts().get(args.postId-1).imageURL)
+        binding.cardText.text = MockProvider.getMockPost(args.postId).text
+        binding.picture.load(MockProvider.getMockPost(args.postId).imageURL)
     }
 }
