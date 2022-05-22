@@ -24,7 +24,7 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
         val inflater = LayoutInflater.from(parent.context)
 
         return PostViewHolder(
-            CardViewBinding.inflate(inflater,parent,false)
+            CardViewBinding.inflate(inflater, parent, false)
         )
     }
 
@@ -33,30 +33,22 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
     }
 
     inner class PostViewHolder(
-
         private val binding: CardViewBinding
-
-    ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Post) {
-
             binding.cardText.isVisible = !item.text.isNullOrBlank()
             binding.cardText.text = item.text
 
             binding.picture.isVisible = !item.imageURL.isNullOrBlank()
-            if(binding.picture.isVisible){
+            if (binding.picture.isVisible) {
                 binding.cardText.maxLines = 4
             }
             binding.picture.load(item.imageURL)
 
-            binding.root.setOnClickListener{
+            binding.root.setOnClickListener {
                 onItemClick?.invoke(item)
             }
-        }
-
-        override fun onClick(v: View?) {
-
         }
     }
 
@@ -68,8 +60,5 @@ class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallba
         override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
             return oldItem == newItem
         }
-
     }
-
-
 }

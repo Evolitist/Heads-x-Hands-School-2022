@@ -29,6 +29,6 @@ class FeedFragment : Fragment() {
                 findNavController().navigate(FeedFragmentDirections.actionFeedFragmentToPostFragment(it.id))
             }
         }
-        postAdapter.submitList(MockProvider.getMockPosts())
+        postAdapter.submitList(MockProvider.getListPosts())
     }
 }

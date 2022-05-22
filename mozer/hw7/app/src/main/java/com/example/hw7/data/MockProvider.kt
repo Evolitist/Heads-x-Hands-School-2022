@@ -3,7 +3,16 @@ package com.example.hw7.data
 import com.example.hw7.model.Post
 
 object MockProvider {
-    fun getMockPosts() = listOf(
+
+    fun getMockPost(id: Int) = Post(
+        id = list.get(id).id,
+        text = list.get(id).text,
+        imageURL = list.get(id).imageURL
+    )
+
+    fun getListPosts() = list
+
+    private val list = listOf(
         Post(
             1,
             "Some very long text that probably won't fit on a single line. Some very long text that probably won't fit on a single line. Some very long text that probably won't fit on a single line. Some very long text that probably won't fit on a single line.",

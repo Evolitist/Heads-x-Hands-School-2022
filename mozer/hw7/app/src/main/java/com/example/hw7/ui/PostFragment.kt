@@ -24,7 +24,7 @@ class PostFragment : Fragment() {
         return binding.root
     }
 
-    val args: PostFragmentArgs by navArgs()
+    private val args: PostFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
