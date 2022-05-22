@@ -6,8 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import com.example.hw7.domain.model.Post
-import com.example.hw7.domain.usecase.GetPostsUseCase
-import com.example.hw7.domain.usecase.GetProfileUseCase
+import com.example.hw7.domain.usecase.GetProfilePostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    val getPostsUseCase: GetPostsUseCase,
+    val getProfilePostsUseCase: GetProfilePostsUseCase,
 ) : ViewModel() {
 
     private val _postsLiveData = MutableLiveData<PagingData<Post>>()
@@ -23,10 +22,9 @@ class FeedViewModel @Inject constructor(
 
     fun loadPosts() {
         viewModelScope.launch {
-            getPostsUseCase().collect {
+            getProfilePostsUseCase("evo").collect {
                 _postsLiveData.value = it
             }
-
         }
     }
 }

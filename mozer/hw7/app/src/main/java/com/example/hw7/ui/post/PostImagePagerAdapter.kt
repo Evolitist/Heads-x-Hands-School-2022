@@ -1,40 +1,38 @@
-package com.example.hw7.ui
+package com.example.hw7.ui.post
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.hw7.databinding.ItemImagesListBinding
+import com.example.hw7.databinding.ItemPostImagesListBinding
 import com.example.hw7.domain.model.Image
 
-class ImagesAdapter : ListAdapter<Image, ImagesAdapter.ImagesViewHolder>(ImagesItemCallback) {
+class PostImagePagerAdapter(
+) : ListAdapter<Image, PostImagePagerAdapter.PostImagesViewHolder>(ImagesItemCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImagesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostImagesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
-        return ImagesViewHolder(
-            ItemImagesListBinding.inflate(inflater, parent, false)
+        return PostImagesViewHolder(
+            ItemPostImagesListBinding.inflate(inflater, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: ImagesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PostImagesViewHolder, position: Int) {
         holder.bind(getItem(position))
+
     }
 
-    inner class ImagesViewHolder(
-
-        private val binding: ItemImagesListBinding
-
+    inner class PostImagesViewHolder(
+        private val binding: ItemPostImagesListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Image) {
             binding.picture.isVisible = !item.sizes.isEmpty()
-            binding.picture.load(item.sizes.last().url)
-
+            binding.picture.load(item.sizes.first().url)
         }
 
     }
@@ -47,8 +45,5 @@ class ImagesAdapter : ListAdapter<Image, ImagesAdapter.ImagesViewHolder>(ImagesI
         override fun areContentsTheSame(oldItem: Image, newItem: Image): Boolean {
             return oldItem == newItem
         }
-
     }
-
-
 }

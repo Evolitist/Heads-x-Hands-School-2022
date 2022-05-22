@@ -1,13 +1,7 @@
 package com.example.hw7.di
 
-import com.example.hw7.data.repository.AuthRepositoryImpl
-import com.example.hw7.data.repository.PostRepositoryImpl
-import com.example.hw7.data.repository.PreferencesRepositoryImpl
-import com.example.hw7.data.repository.ProfileRepositoryImpl
-import com.example.hw7.domain.repository.AuthRepository
-import com.example.hw7.domain.repository.PostRepository
-import com.example.hw7.domain.repository.PreferencesRepository
-import com.example.hw7.domain.repository.ProfileRepository
+import com.example.hw7.data.repository.*
+import com.example.hw7.domain.repository.*
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -28,5 +22,8 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
+
+    @Binds
+    abstract fun bindImageRepository(imageRepositoryImpl: ImageRepositoryImpl): ImageRepository
 
 }

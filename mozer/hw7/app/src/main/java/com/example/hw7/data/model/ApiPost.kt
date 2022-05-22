@@ -7,7 +7,7 @@ data class ApiPost(
     val id:String,
     val owner: ApiOwner,
     val dateCreated: Long,
-    val text: String,
+    val text: String?,
     val images: List<ApiImage>,
     val likes: ApiLike,
     //val comments: Int

@@ -17,8 +17,11 @@ class AuthViewModel @Inject constructor(
     private val checkUsernameUseCase: CheckUsernameUseCase,
     private val authorizationUseCase: AuthorizationUseCase,
     private val registrationUseCase: RegistrationUseCase,
-    private val addTokenUseCase: AddTokenUseCase,
-    private val getTokenUseCase: GetTokenUseCase
+    private val getTokenUseCase: GetTokenUseCase,
+    private val getUserIdUseCase: GetUserIdUseCase,
+    private val addUserAuthDataUseCase: AddUserAuthDataUseCase,
+    private val getPushTokenUseCase: GetPushTokenUseCase,
+    private val setPushTokenUseCase: SetPushTokenUseCase,
 ) : ViewModel() {
 
     private val _checkUsernameApiLiveData = MutableLiveData<CheckUsernameResponse>()
@@ -110,7 +113,10 @@ class AuthViewModel @Inject constructor(
             if (validatePassword()) {
                 try {
                     val token = authorizationUseCase(username, password)
-                    addTokenUseCase(token.token)
+                    addUserAuthDataUseCase(token.token, token.userId)
+                    getPushTokenUseCase()?.let { pushToken ->
+                        setPushTokenUseCase(pushToken)
+                    }
                     _navigateLiveData.value = Any()
                 } catch (e: IOException) {
                     _exceptionLiveData.value = Any()
@@ -123,13 +129,16 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             if (validatePassword()) {
                 val token = registrationUseCase(username, password)
-                addTokenUseCase(token.token)
+                addUserAuthDataUseCase(token.token, token.userId)
+                getPushTokenUseCase()?.let { pushToken ->
+                    setPushTokenUseCase(pushToken)
+                }
                 _navigateLiveData.value = Any()
             }
         }
     }
 
-    fun haveToken(): Boolean {
-        return getTokenUseCase() != null
+    fun haveTokenAndUserId(): Boolean {
+        return (!getTokenUseCase().isNullOrBlank() && !getUserIdUseCase().isNullOrBlank())
     }
 }

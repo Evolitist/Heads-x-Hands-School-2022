@@ -11,10 +11,12 @@ class PreferencesRepositoryImpl @Inject constructor(
 
     companion object {
         private const val KEY_ACCESS_TOKEN = "access_token"
+        private const val KEY_USER_ID = "user_id"
+        private const val KEY_PUSH_TOKEN = "push_token"
     }
 
     override fun getToken(): String? {
-        return sharedPreferences.getString(KEY_ACCESS_TOKEN, null).toString()
+        return sharedPreferences.getString(KEY_ACCESS_TOKEN, null)
     }
 
     override fun addToken(token: String) {
@@ -23,5 +25,41 @@ class PreferencesRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun deleteToken() {
+        sharedPreferences.edit {
+            remove(KEY_ACCESS_TOKEN)
+        }
+    }
 
+    override fun getUserId(): String? {
+        return sharedPreferences.getString(KEY_USER_ID, null)
+    }
+
+    override fun addUserId(userId: String) {
+        sharedPreferences.edit {
+            putString(KEY_USER_ID, userId)
+        }
+    }
+
+    override fun deleteUserId() {
+        sharedPreferences.edit {
+            remove(KEY_USER_ID)
+        }
+    }
+
+    override fun addPushToken(pushToken: String) {
+        sharedPreferences.edit {
+            putString(KEY_PUSH_TOKEN, pushToken)
+        }
+    }
+
+    override fun deletePushToken() {
+        sharedPreferences.edit {
+            remove(KEY_PUSH_TOKEN)
+        }
+    }
+
+    override fun getPushToken(): String? {
+        return sharedPreferences.getString(KEY_PUSH_TOKEN, null)
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.hw7.di
 
+import android.content.ContentResolver
+import android.content.Context
 import com.example.hw7.data.repository.PreferencesRepositoryImpl
 import com.example.hw7.domain.AuthApiService
 import com.example.hw7.domain.NanoPostApiService
@@ -7,6 +9,7 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -43,7 +46,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideHttpLoggingInterceptor() =
-        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     @Provides
     @Singleton
@@ -52,7 +55,7 @@ object NetworkModule {
         return Interceptor { chain ->
             val response = chain.proceed(chain.request())
             when (response.code) {
-                in 400..499 -> throw IOException("login or password is incorrect")
+                400 -> throw IOException("password is incorrect")
             }
             response
         }
@@ -149,5 +152,13 @@ object NetworkModule {
     @Singleton
     fun provideNanoPostApiService(@ApiRetrofit retrofit: Retrofit): NanoPostApiService {
         return retrofit.create()
+    }
+
+    @Provides
+    @Singleton
+    fun provideContentResolver(
+        @ApplicationContext context: Context
+    ): ContentResolver {
+        return context.contentResolver
     }
 }

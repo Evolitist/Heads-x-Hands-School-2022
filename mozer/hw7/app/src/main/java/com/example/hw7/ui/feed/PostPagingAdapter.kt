@@ -1,4 +1,4 @@
-package com.example.hw7.ui
+package com.example.hw7.ui.feed
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,17 +7,26 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.hw7.R
 import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
+import com.example.hw7.domain.model.Owner
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostAdapter : PagingDataAdapter<Post, PostAdapter.PostViewHolder>(PostItemCallback) {
+class PostPagingAdapter :
+    PagingDataAdapter<Post, PostPagingAdapter.PostViewHolder>(PostItemCallback) {
 
     private var onItemClick: ((Post) -> Unit)? = null
 
     fun setOnItemClick(callback: (Post) -> Unit) {
         onItemClick = callback
+    }
+
+    private var onImageProfileClick: ((String) -> Unit)? = null
+
+    fun setOnImageProfileClick(callback: (String) -> Unit) {
+        onImageProfileClick = callback
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -29,22 +38,22 @@ class PostAdapter : PagingDataAdapter<Post, PostAdapter.PostViewHolder>(PostItem
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-
         getItem(position)?.let {
             holder.bind(it)
         }
     }
 
     inner class PostViewHolder(
-
         private val binding: CardViewBinding
-
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Post) {
-            binding.profileImage.isVisible = !item.owner.avatarUrl.isNullOrBlank()
-            binding.profileImage.load(item.owner.avatarUrl)
 
+            if (item.owner.avatarUrl.isNullOrBlank()) {
+                binding.profileImage.setImageResource(R.drawable.ic_profile)
+            } else {
+                binding.profileImage.load(item.owner.avatarUrl)
+            }
             binding.profileName.text = item.owner.displayName ?: item.owner.username
 
             val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss", Locale.getDefault())
@@ -59,12 +68,14 @@ class PostAdapter : PagingDataAdapter<Post, PostAdapter.PostViewHolder>(PostItem
                 binding.picture.load(item.images.last().sizes.first().url)
             }
 
-
             binding.root.setOnClickListener {
                 onItemClick?.invoke(item)
             }
-        }
 
+            binding.profileImage.setOnClickListener {
+                onImageProfileClick?.invoke(item.owner.id)
+            }
+        }
     }
 
     private object PostItemCallback : DiffUtil.ItemCallback<Post>() {
@@ -76,8 +87,5 @@ class PostAdapter : PagingDataAdapter<Post, PostAdapter.PostViewHolder>(PostItem
         override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
             return oldItem == newItem
         }
-
     }
-
-
 }

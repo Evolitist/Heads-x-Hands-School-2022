@@ -11,11 +11,16 @@
     <string name="profile_subscribers">subscribers</string>
     <string name="profile_posts">posts</string>
     <string name="subscribe">Subscribe</string>
+    <string name="unsubscribe">Unsubscribe</string>
     <string name="edit">Edit</string>
     <string name="logout">logout</string>
     <string name="title_auth">NanoPost</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="btn_continue">Continue</string>
+    <string name="check">check</string>
+    <string name="add_image">Add image...</string>
+    <string name="delete_post">delete post</string>
+    <string name="delete_image">delete image</string>
 
 </resources>

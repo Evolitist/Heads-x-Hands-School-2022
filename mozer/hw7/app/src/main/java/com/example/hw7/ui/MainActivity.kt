@@ -28,8 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigationView.setupWithNavController(navHostFragment.navController)
 
-        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.navigationView.isVisible = destination.id != R.id.authFragment
+            binding.navigationView.isVisible = destination.id != R.id.createPostFragment
         }
 
     }

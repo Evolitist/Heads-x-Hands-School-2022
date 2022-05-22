@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.hw7.R
 import com.example.hw7.databinding.FragmentFeedBinding
-import com.example.hw7.ui.PostAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +16,7 @@ class FeedFragment : Fragment() {
 
     private lateinit var binding: FragmentFeedBinding
     private val viewModel: FeedViewModel by viewModels()
-    private val postAdapter = PostAdapter()
+    private val postAdapter = PostPagingAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,11 +33,14 @@ class FeedFragment : Fragment() {
 
         binding.feedList.apply {
             adapter = postAdapter.apply {
-                setOnItemClick {
+                setOnItemClick { post ->
                     findNavController().navigate(
-                        FeedFragmentDirections.actionFeedFragmentToPostFragment(
-                            it.id
-                        )
+                        FeedFragmentDirections.actionFeedFragmentToPostFragment(post.id)
+                    )
+                }
+                setOnImageProfileClick { profileId ->
+                    findNavController().navigate(
+                        FeedFragmentDirections.actionFeedFragmentToProfileFragment(profileId)
                     )
                 }
             }
@@ -45,6 +48,10 @@ class FeedFragment : Fragment() {
 
         viewModel.postsLiveData.observe(viewLifecycleOwner) {
             postAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_feedFragment_to_createPostFragment)
         }
     }
 }

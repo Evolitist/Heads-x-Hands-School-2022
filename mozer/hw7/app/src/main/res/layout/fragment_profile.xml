@@ -22,14 +22,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/toolbar_height"
                 android:orientation="vertical"
+                android:padding="16dp"
                 app:layout_scrollFlags="scroll|enterAlways">
 
                 <com.google.android.material.card.MaterialCardView
                     style="@style/Widget.Material3.CardView.Elevated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="16dp"
+
                     app:cardCornerRadius="16dp"
                     app:cardElevation="8dp"
                     app:layout_collapseMode="pin">
@@ -39,7 +39,7 @@
                         android:layout_height="match_parent">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/profile_image"
+                            android:id="@+id/profileImage"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_margin="16dp"
@@ -50,7 +50,7 @@
                             tools:src="@color/black" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/profile_name"
+                            android:id="@+id/profileName"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="16dp"
@@ -58,11 +58,12 @@
                             android:text="@string/cardTitle"
                             android:textSize="22sp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/profile_image"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintStart_toEndOf="@+id/profileImage"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_goneMarginStart="16dp" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/profile_bio"
+                            android:id="@+id/profileBio"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="16dp"
@@ -70,28 +71,28 @@
                             android:text="@string/subtitle"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/profile_image"
-                            app:layout_constraintTop_toBottomOf="@id/profile_name" />
+                            app:layout_constraintStart_toEndOf="@id/profileImage"
+                            app:layout_constraintTop_toBottomOf="@id/profileName" />
 
                         <View
-                            android:id="@+id/divider"
+                            android:id="@+id/dividerTop"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginTop="32dp"
                             android:background="@color/divider"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/profile_bio" />
+                            app:layout_constraintTop_toBottomOf="@id/profileBio" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/images_count"
+                            android:id="@+id/imagesCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="14dp"
                             android:textSize="28sp"
                             app:layout_constraintEnd_toEndOf="@id/images"
                             app:layout_constraintStart_toStartOf="@id/images"
-                            app:layout_constraintTop_toBottomOf="@id/divider"
+                            app:layout_constraintTop_toBottomOf="@id/dividerTop"
                             tools:text="3" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -106,17 +107,17 @@
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintHorizontal_chainStyle="spread_inside"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/images_count" />
+                            app:layout_constraintTop_toBottomOf="@id/imagesCount" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/subscribers_count"
+                            android:id="@+id/subscribersCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="14dp"
                             android:textSize="28sp"
                             app:layout_constraintEnd_toEndOf="@id/subscribers"
                             app:layout_constraintStart_toStartOf="@id/subscribers"
-                            app:layout_constraintTop_toTopOf="@id/divider"
+                            app:layout_constraintTop_toTopOf="@id/dividerTop"
                             tools:text="5" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -131,17 +132,17 @@
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintHorizontal_chainStyle="spread_inside"
                             app:layout_constraintStart_toEndOf="@+id/images"
-                            app:layout_constraintTop_toBottomOf="@id/subscribers_count" />
+                            app:layout_constraintTop_toBottomOf="@id/subscribersCount" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/posts_count"
+                            android:id="@+id/postsCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="14dp"
                             android:textSize="28sp"
                             app:layout_constraintEnd_toEndOf="@id/posts"
                             app:layout_constraintStart_toStartOf="@id/posts"
-                            app:layout_constraintTop_toBottomOf="@+id/divider"
+                            app:layout_constraintTop_toBottomOf="@+id/dividerTop"
                             tools:text="3" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -157,10 +158,10 @@
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintHorizontal_chainStyle="spread_inside"
                             app:layout_constraintStart_toEndOf="@+id/subscribers"
-                            app:layout_constraintTop_toBottomOf="@id/posts_count" />
+                            app:layout_constraintTop_toBottomOf="@id/postsCount" />
 
                         <View
-                            android:id="@+id/divider2"
+                            android:id="@+id/dividerBottom"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginTop="14dp"
@@ -170,7 +171,7 @@
                             app:layout_constraintTop_toBottomOf="@id/images" />
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_subscribe"
+                            android:id="@+id/btnSubscribeOrEdit"
                             style="@style/Widget.Material3.Button.ElevatedButton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -180,15 +181,16 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/divider2" />
+                            app:layout_constraintTop_toBottomOf="@id/dividerBottom" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/imagesCard"
                     style="@style/Widget.Material3.CardView.Elevated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="8dp"
                     app:layout_collapseMode="pin">
@@ -198,7 +200,7 @@
                         android:layout_height="match_parent">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/images_card"
+                            android:id="@+id/imagesTitle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -210,6 +212,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageButton
+                            android:id="@+id/btnToGallery"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_margin="16dp"
@@ -219,7 +222,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/images_list"
+                            android:id="@+id/imagesList"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -231,18 +234,20 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/images_card" />
+                            app:layout_constraintTop_toBottomOf="@id/imagesTitle" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/background"
+                android:background="?attr/colorSurface"
                 android:elevation="0dp"
                 app:layout_collapseMode="pin"
-                app:menu="@menu/profile_menu"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:navigationIconTint="?attr/colorOnSurface"
                 app:title="Profile"
                 app:titleCentered="true" />
 
@@ -250,7 +255,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/feed_list"
+        android:id="@+id/feedList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
@@ -258,6 +263,7 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
