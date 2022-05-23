@@ -16,18 +16,26 @@ class RoomDataSource(
 
     fun getNotes(): Flow<List<Note>> {
         return dao.getAll()
-            .map{ notes ->
-                notes.map{
+            .map { notes ->
+                notes.map {
                     Note(it.id, it.text)
                 }
             }
     }
 
+    fun searchNotes(search: String): Flow<List<Note>> {
+        return dao.searchNotes(search)
+            .map { notes ->
+                notes.map {
+                    Note(it.id, it.text)
+                }
+            }
+    }
 
     suspend fun putNote(note: Note) {
-         dao.insertNote(
-             NoteEntity(0,note.text)
-         )
+        dao.insertNote(
+            NoteEntity(0, note.text)
+        )
     }
 
     suspend fun deleteNote(note: Note) {

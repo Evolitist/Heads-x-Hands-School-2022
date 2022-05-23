@@ -51,24 +51,21 @@ class ListNotesFragment : Fragment() {
                 else -> false
             }
         }
-//        val noteTouchHelperCallback = NoteTouchHelperCallback()
-//        val noteTouchHelper = ItemTouchHelper(noteTouchHelperCallback)
+
         binding.grid.apply {
-//            noteTouchHelper.attachToRecyclerView(this)
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = noteAdapter
                 .apply {
                     setOnItemLongClick {
                         viewModel.deleteNotes(it)
                     }
-
                 }
-
-            viewModel.notesLiveData.observe(viewLifecycleOwner) {
-                noteAdapter.submitList(it)
-            }
-
         }
+
+        viewModel.notesLiveData.observe(viewLifecycleOwner) {
+            noteAdapter.submitList(it)
+        }
+
         binding.fab.setOnClickListener {
             val extras = FragmentNavigatorExtras(view to "shared_element_container")
             findNavController().navigate(

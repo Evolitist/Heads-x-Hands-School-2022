@@ -15,24 +15,24 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_arrow_back"
             app:title="QuickNote"
-            app:titleCentered="true"
-            app:navigationIcon="@drawable/ic_arrow_back" />
+            app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:textSize="16sp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="1dp"
         app:counterEnabled="true"
         app:counterMaxLength="180"
-        android:layout_marginTop="12dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input"
+            android:id="@+id/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="180"

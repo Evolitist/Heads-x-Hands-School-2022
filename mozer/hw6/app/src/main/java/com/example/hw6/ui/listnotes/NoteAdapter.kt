@@ -11,7 +11,7 @@ import com.example.hw6.databinding.ItemNoteBinding
 import com.example.hw6.model.Note
 import java.util.*
 
-class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallback), NoteTouchHelperAdapter {
+class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallback) {
 
     private var onItemLongClick: ((Note) -> Unit)? = null
 
@@ -23,15 +23,12 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallba
         private val binding: ItemNoteBinding
     ) : RecyclerView.ViewHolder(binding.root), View.OnLongClickListener {
 
-
         fun bind(item: Note) {
             binding.cardText.text = item.text
             binding.root.setOnLongClickListener {
                 onItemLongClick?.invoke(item)
                 true
-
             }
-
         }
 
         override fun onLongClick(p0: View?): Boolean {
@@ -59,13 +56,5 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(NoteDiffCallba
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         holder.bind(getItem(position))
-    }
-
-    override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean{
-        return true
-    }
-
-    override fun onItemDismiss(position: Int) {
-
     }
 }

@@ -1,12 +1,14 @@
 package com.example.hw6.data
 
 import android.os.SystemClock
+import androidx.lifecycle.LiveData
 import com.example.hw6.model.Note
 import kotlinx.coroutines.flow.Flow
 
 class NoteRepositoryImpl(
     private val roomDataSource: RoomDataSource = RoomDataSource()
 ) : NoteRepository {
+
     override fun getNotes(): Flow<List<Note>> {
         return roomDataSource.getNotes()
     }
@@ -24,4 +26,7 @@ class NoteRepositoryImpl(
         roomDataSource.deleteNote(note)
     }
 
+    override fun searchNotes(search: String): Flow<List<Note>> {
+        return roomDataSource.searchNotes(search)
+    }
 }

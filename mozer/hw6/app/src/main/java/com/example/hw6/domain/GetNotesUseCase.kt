@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class GetNotesUseCase(
     private val noteRepository: NoteRepository = NoteRepositoryImpl()
 ) {
+
     operator fun invoke(): Flow<List<Note>> {
         return noteRepository.getNotes()
     }

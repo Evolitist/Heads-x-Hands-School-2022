@@ -1,10 +1,8 @@
 package com.example.hw6.data.db
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.hw6.model.Note
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,9 +13,9 @@ interface NoteDAO {
     @Insert
     suspend fun insertNote(note: NoteEntity)
 
-//    @Delete
-//    suspend fun deleteNote(note: NoteEntity)
-
-    @Query("Delete from notes where id in (:id) ")
+    @Query("Delete from notes where id in (:id)")
     suspend fun deleteNote(id: Int)
+
+    @Query("Select * from notes where text like (:search)")
+    fun searchNotes(search: String): Flow<List<NoteEntity>>
 }
