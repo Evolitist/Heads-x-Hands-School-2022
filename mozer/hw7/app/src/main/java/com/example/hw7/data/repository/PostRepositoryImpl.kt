@@ -45,28 +45,45 @@ class PostRepositoryImpl @Inject constructor(
     }
 
     override suspend fun createPost(text: String?, list: List<ByteArray>?): Post {
-        /*val (image0, image1, image2, image3) = array?.mapIndexed { index, it ->
-            MultipartBody.Part.createFormData(
-                "image${index.inc()}",
-                "image$index.jpg",
+//        val (image0, image1, image2, image3) = list?.mapIndexed { index, it ->
+//            MultipartBody.Part.createFormData(
+//                "image${index.inc()}",
+//                "image${index.inc()}.jpg",
+//                it.toRequestBody("image/*".toMediaType())
+//            )
+//        }.orEmpty()
+
+        var image0: MultipartBody.Part? = null
+        list?.getOrNull(0)?.let {
+            image0 = MultipartBody.Part.createFormData(
+                "image1",
+                "image1.jpg",
                 it.toRequestBody("image/*".toMediaType())
             )
-        }.orEmpty()*/*/
-        var image0: RequestBody? = null
-        list?.getOrNull(0)?.let {
-            image0 = it.toRequestBody("image/*".toMediaType())
         }
-        var image1: RequestBody? = null
-        list?.getOrNull(0)?.let {
-            image1 = it.toRequestBody("image/*".toMediaType())
+        var image1: MultipartBody.Part? = null
+        list?.getOrNull(1)?.let {
+            image1 = MultipartBody.Part.createFormData(
+                "image2",
+                "image2.jpg",
+                it.toRequestBody("image/*".toMediaType())
+            )
         }
-        var image2: RequestBody? = null
-        list?.getOrNull(0)?.let {
-            image2 = it.toRequestBody("image/*".toMediaType())
+        var image2: MultipartBody.Part? = null
+        list?.getOrNull(2)?.let {
+            image2 = MultipartBody.Part.createFormData(
+                "image3",
+                "image3.jpg",
+                it.toRequestBody("image/*".toMediaType())
+            )
         }
-        var image3: RequestBody? = null
-        list?.getOrNull(0)?.let {
-            image3 = it.toRequestBody("image/*".toMediaType())
+        var image3: MultipartBody.Part? = null
+        list?.getOrNull(3)?.let {
+            image3 = MultipartBody.Part.createFormData(
+                "image4",
+                "image4.jpg",
+                it.toRequestBody("image/*".toMediaType())
+            )
         }
 
         return nanoPostApiService.createPost(

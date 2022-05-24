@@ -63,10 +63,10 @@ interface NanoPostApiService {
     @Multipart
     suspend fun createPost(
         @Part("text") text: RequestBody?,
-        @Part("image1") image1: RequestBody?,
-        @Part("image2") image2: RequestBody?,
-        @Part("image3") image3: RequestBody?,
-        @Part("image4") image4: RequestBody?
+        @Part image1: MultipartBody.Part?,
+        @Part image2: MultipartBody.Part?,
+        @Part image3: MultipartBody.Part?,
+        @Part image4: MultipartBody.Part?
     ): ApiPost
 
     @DELETE("post/{postId}")

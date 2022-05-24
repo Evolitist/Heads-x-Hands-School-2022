@@ -53,7 +53,7 @@ class CreatePostFragment : Fragment() {
                     it.second
                 )
             )
-            //findNavController().popBackStack()
+            findNavController().popBackStack()
         }
 
         binding.toolbar.setOnMenuItemClickListener {
