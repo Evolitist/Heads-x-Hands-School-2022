@@ -10,7 +10,6 @@ class DeleteUserAuthDataUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke() {
-        //preferencesRepository.deletePushToken()  сперва узнать, как заново создавать
         profileRepository.deletePushToken()
         preferencesRepository.deleteToken()
         preferencesRepository.deleteUserId()

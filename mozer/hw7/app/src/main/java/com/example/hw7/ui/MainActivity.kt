@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.navigationView.isVisible = destination.id != R.id.authFragment
             binding.navigationView.isVisible = destination.id != R.id.createPostFragment
+            binding.navigationView.isVisible = destination.id != R.id.imageFragment
         }
 
     }

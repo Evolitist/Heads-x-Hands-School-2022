@@ -40,6 +40,11 @@ class ImagesFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.loadData(args.profileId)
+            binding.swipeRefresh.isRefreshing = false
+        }
+
         binding.imagesList.apply {
             layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
             adapter = imagesAdapter.apply {
