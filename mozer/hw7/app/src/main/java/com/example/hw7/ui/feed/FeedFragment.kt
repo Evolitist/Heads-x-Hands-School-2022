@@ -31,6 +31,11 @@ class FeedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadPosts()
 
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.loadPosts()
+            binding.swipeRefresh.isRefreshing = false
+        }
+
         binding.feedList.apply {
             adapter = postAdapter.apply {
                 setOnItemClick { post ->

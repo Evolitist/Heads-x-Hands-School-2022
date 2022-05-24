@@ -43,8 +43,12 @@ class ProfileFragment : Fragment() {
 
         binding.imagesList.apply {
             adapter = imagesAdapter.apply {
-                setOnItemClick { image->
-                    findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToImageFragment(image.id))
+                setOnItemClick { image ->
+                    findNavController().navigate(
+                        ProfileFragmentDirections.actionProfileFragmentToImageFragment(
+                            image.id
+                        )
+                    )
                 }
             }
 
@@ -66,10 +70,11 @@ class ProfileFragment : Fragment() {
                         else -> false
                     }
                 }
-                
+
                 binding.btnSubscribeOrEdit.setOnClickListener {
                     // для теста
-                    Toast.makeText(requireContext(), "it doesn't work yet..", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "it doesn't work yet..", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
@@ -96,7 +101,7 @@ class ProfileFragment : Fragment() {
         viewModel.logoutLiveData.observe(viewLifecycleOwner) {
             findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAuthFragment())
         }
-        
+
         viewModel.btnSubscribeLiveData.observe(viewLifecycleOwner) { subscribed ->
             binding.btnSubscribeOrEdit.apply {
                 when (subscribed) {
@@ -111,6 +116,11 @@ class ProfileFragment : Fragment() {
 
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.loadData(args.profileId)
+            binding.swipeRefresh.isRefreshing = false
         }
 
         binding.feedList.apply {
