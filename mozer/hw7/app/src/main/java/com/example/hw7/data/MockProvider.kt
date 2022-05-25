@@ -4,11 +4,7 @@ import com.example.hw7.model.Post
 
 object MockProvider {
 
-    fun getMockPost(id: Int) = Post(
-        id = list.get(id).id,
-        text = list.get(id).text,
-        imageURL = list.get(id).imageURL
-    )
+    fun getMockPost(id: Int) = list.get(id)
 
     fun getListPosts() = list
 
