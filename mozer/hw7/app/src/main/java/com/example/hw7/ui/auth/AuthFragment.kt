@@ -59,22 +59,22 @@ class AuthFragment : Fragment() {
         }
 
         viewModel.exceptionLiveData.observe(viewLifecycleOwner) {
-            binding.password.error = "Password is incorrect"
+            binding.password.error = getString(R.string.password_is_incorrect)
         }
 
         viewModel.validateUsernameLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 ValidateUsernameResult.TooShort -> {
-                    binding.login.error = "Username must be longer than 3 characters"
+                    binding.login.error = getString(R.string.username_must_be_longer_than_3_characters)
                 }
                 ValidateUsernameResult.TooLong -> {
-                    binding.login.error = "Username must be shorter than 16 characters"
+                    binding.login.error = getString(R.string.username_must_shorter_than_16_characters)
                 }
                 ValidateUsernameResult.InvalidCharacters -> {
-                    binding.login.error = "Username contains invalid characters"
+                    binding.login.error = getString(R.string.username_contains_invalid_characters)
                 }
                 else -> {
-                    throw IllegalStateException("Something went wrong")
+                    throw IllegalStateException(getString(R.string.something_went_wrong))
                 }
             }
         }
@@ -82,10 +82,10 @@ class AuthFragment : Fragment() {
         viewModel.validatePasswordLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 ValidatePasswordResult.TooShort -> {
-                    binding.password.error = "Password must be longer than 3 characters"
+                    binding.password.error = getString(R.string.password_must_be_longer_than_3_characters)
                 }
                 ValidatePasswordResult.TooLong -> {
-                    binding.password.error = "Username must be shorter than 16 characters"
+                    binding.password.error = getString(R.string.password_must_be_shorter_than_16_characters)
                 }
                 else -> {
                     binding.password.error = null
@@ -96,13 +96,13 @@ class AuthFragment : Fragment() {
         viewModel.checkUsernameApiLiveData.observe(viewLifecycleOwner) {
             when (it.result) {
                 CheckUsernameResultApi.TooShort -> {
-                    binding.login.error = "Username must be longer than 3 characters"
+                    binding.login.error = getString(R.string.password_must_be_longer_than_3_characters)
                 }
                 CheckUsernameResultApi.TooLong -> {
-                    binding.login.error = "Username must be shorter than 16 characters"
+                    binding.login.error = getString(R.string.username_must_shorter_than_16_characters)
                 }
                 CheckUsernameResultApi.InvalidCharacters -> {
-                    binding.login.error = "Username contains invalid characters"
+                    binding.login.error = getString(R.string.username_contains_invalid_characters)
                 }
                 CheckUsernameResultApi.Taken -> {
                     binding.login.error = null

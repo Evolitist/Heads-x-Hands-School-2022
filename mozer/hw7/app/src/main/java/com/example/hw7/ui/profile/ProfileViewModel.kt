@@ -42,7 +42,7 @@ class ProfileViewModel @Inject constructor(
                 }
                 getProfilePostsUseCase(profilePostId).cachedIn(viewModelScope).collect {
                     _postsLiveData.value = it
-                    _btnSubscribeLiveData.value = _profileLiveData.value!!.subscribed
+                    _btnSubscribeLiveData.value = _profileLiveData.value?.subscribed
                 }
             } else {
                 getUserIdUseCase()?.let { userId ->

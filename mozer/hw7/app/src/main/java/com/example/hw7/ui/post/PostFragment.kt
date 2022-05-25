@@ -19,6 +19,7 @@ import com.example.hw7.databinding.FragmentPostBinding
 import com.example.hw7.domain.model.Post
 import com.example.hw7.ui.profile.ProfileFragment
 import com.example.hw7.ui.profile.ProfileImagesAdapter
+import com.example.hw7.ui.utils.formatDateStringFrom
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -83,10 +84,7 @@ class PostFragment : Fragment() {
             binding.profileImage.load(post.owner.avatarUrl)
         }
         binding.profileName.text = post.owner.displayName ?: post.owner.username
-
-        val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss", Locale.getDefault())
-        val dateString = simpleDateFormat.format(post.dateCreated).toString()
-        binding.dateCreated.text = String.format(dateString)
+        binding.dateCreated.text = formatDateStringFrom(post.dateCreated,"MMM d, yyyy HH:mm:ss")
 
         binding.cardText.isVisible = !post.text.isNullOrBlank()
         if (binding.cardText.isVisible) {

@@ -10,9 +10,7 @@ import coil.load
 import com.example.hw7.R
 import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
-import com.example.hw7.domain.model.Owner
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.hw7.ui.utils.formatDateStringFrom
 
 class PostPagingAdapter :
     PagingDataAdapter<Post, PostPagingAdapter.PostViewHolder>(PostItemCallback) {
@@ -55,11 +53,7 @@ class PostPagingAdapter :
                 binding.profileImage.load(item.owner.avatarUrl)
             }
             binding.profileName.text = item.owner.displayName ?: item.owner.username
-
-            val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss", Locale.getDefault())
-            val dateString = simpleDateFormat.format(item.dateCreated).toString()
-            binding.dateCreated.text = String.format(dateString)
-
+            binding.dateCreated.text = formatDateStringFrom(item.dateCreated,"MMM d, yyyy HH:mm:ss")
             binding.cardText.isVisible = !item.text.isNullOrBlank()
             binding.cardText.text = item.text
             binding.picture.isVisible = !item.images.isNullOrEmpty()

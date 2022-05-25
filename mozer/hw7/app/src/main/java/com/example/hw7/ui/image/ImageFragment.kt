@@ -12,6 +12,7 @@ import coil.load
 import com.example.hw7.R
 import com.example.hw7.databinding.FragmentImageBinding
 import com.example.hw7.domain.model.Image
+import com.example.hw7.ui.utils.formatDateStringFrom
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -75,9 +76,6 @@ class ImageFragment : Fragment() {
         }
 
         binding.profileName.text = image.owner.displayName ?: image.owner.username
-
-        val simpleDateFormat = SimpleDateFormat("MMM d, yyyy HH:mm:ss", Locale.getDefault())
-        val dateString = simpleDateFormat.format(image.dateCreated).toString()
-        binding.dateCreated.text = String.format(dateString)
+        binding.dateCreated.text = formatDateStringFrom(image.dateCreated,"MMM d, yyyy HH:mm:ss")
     }
 }

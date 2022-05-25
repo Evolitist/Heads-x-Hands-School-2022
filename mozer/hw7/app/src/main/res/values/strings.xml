@@ -19,8 +19,16 @@
     <string name="password">Password</string>
     <string name="btn_continue">Continue</string>
     <string name="check">check</string>
-    <string name="add_image">Add image...</string>
+    <string name="add_image">Add image…</string>
     <string name="delete_post">delete post</string>
     <string name="delete_image">delete image</string>
+
+    <string name="password_is_incorrect">Password is incorrect</string>
+    <string name="username_must_be_longer_than_3_characters">Username must be longer than 3 characters</string>
+    <string name="username_must_shorter_than_16_characters">Username must be shorter than 16 characters</string>
+    <string name="username_contains_invalid_characters">Username contains invalid characters</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="password_must_be_longer_than_3_characters">Password must be longer than 3 characters</string>
+    <string name="password_must_be_shorter_than_16_characters">Password must be shorter than 16 characters</string>
 
 </resources>
