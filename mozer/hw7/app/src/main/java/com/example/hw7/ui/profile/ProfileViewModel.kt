@@ -65,12 +65,14 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun onClickSubscribe() {
-        when (_profileLiveData.value!!.subscribed) {
-            true -> {
-                _btnSubscribeLiveData.value = unsubscribe(_profileLiveData.value!!.id)
-            }
-            false -> {
-                _btnSubscribeLiveData.value = subscribe(_profileLiveData.value!!.id)
+        _profileLiveData.value?.let {
+            when (it.subscribed) {
+                true -> {
+                    _btnSubscribeLiveData.value = unsubscribe(it.id)
+                }
+                false -> {
+                    _btnSubscribeLiveData.value = subscribe(it.id)
+                }
             }
         }
     }
