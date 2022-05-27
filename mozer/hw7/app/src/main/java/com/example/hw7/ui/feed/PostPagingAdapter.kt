@@ -10,6 +10,7 @@ import coil.load
 import com.example.hw7.R
 import com.example.hw7.domain.model.Post
 import com.example.hw7.databinding.CardViewBinding
+import com.example.hw7.ui.post.PostImagePagerAdapter
 import com.example.hw7.ui.utils.formatDateStringFrom
 
 class PostPagingAdapter :
@@ -45,6 +46,8 @@ class PostPagingAdapter :
         private val binding: CardViewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
+        private val imagesPagerAdapter = PostImagePagerAdapter()
+
         fun bind(item: Post) {
 
             if (item.owner.avatarUrl.isNullOrBlank()) {
@@ -53,13 +56,27 @@ class PostPagingAdapter :
                 binding.profileImage.load(item.owner.avatarUrl)
             }
             binding.profileName.text = item.owner.displayName ?: item.owner.username
-            binding.dateCreated.text = formatDateStringFrom(item.dateCreated,"MMM d, yyyy HH:mm:ss")
+            binding.dateCreated.text = formatDateStringFrom(item.dateCreated, "MMM d, yyyy HH:mm:ss")
             binding.cardText.isVisible = !item.text.isNullOrBlank()
             binding.cardText.text = item.text
-            binding.picture.isVisible = !item.images.isNullOrEmpty()
-            if (binding.picture.isVisible) {
+
+            imagesPagerAdapter.submitList(item.images)
+
+            binding.viewPager.isVisible = !item.images.isNullOrEmpty()
+            if (binding.viewPager.isVisible) {
                 binding.cardText.maxLines = 4
-                binding.picture.load(item.images.last().sizes.first().url)
+
+                binding.viewPager.apply {
+                    adapter = imagesPagerAdapter
+                }
+            }
+
+            binding.circleIndicator.apply {
+                setViewPager(binding.viewPager)
+                createIndicators(item.images.size, 0)
+                if (item.images.size < 2) {
+                    createIndicators(0,0)
+                }
             }
 
             binding.root.setOnClickListener {

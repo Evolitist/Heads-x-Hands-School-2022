@@ -92,7 +92,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="380dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -105,7 +105,7 @@
                 android:id="@+id/circleIndicator"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                app:layout_constraintBottom_toBottomOf="@id/viewPager"
+                app:layout_constraintTop_toBottomOf="@id/viewPager"
                 app:layout_constraintEnd_toEndOf="@id/viewPager"
                 app:layout_constraintStart_toStartOf="@id/viewPager" />
         </androidx.constraintlayout.widget.ConstraintLayout>
