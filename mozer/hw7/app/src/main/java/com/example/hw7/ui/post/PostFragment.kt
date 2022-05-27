@@ -41,7 +41,6 @@ class PostFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadPost(args.postId)
@@ -54,7 +53,7 @@ class PostFragment : Fragment() {
             binding.toolbar.inflateMenu(R.menu.post_menu)
         }
 
-        viewModel.postLiveData.observe(viewLifecycleOwner) { post->
+        viewModel.postLiveData.observe(viewLifecycleOwner) { post ->
             setPost(post)
             if (!post.images.isNullOrEmpty()) {
                 imagesPagerAdapter.submitList(post.images)
@@ -84,7 +83,7 @@ class PostFragment : Fragment() {
             binding.profileImage.load(post.owner.avatarUrl)
         }
         binding.profileName.text = post.owner.displayName ?: post.owner.username
-        binding.dateCreated.text = formatDateStringFrom(post.dateCreated,"MMM d, yyyy HH:mm:ss")
+        binding.dateCreated.text = formatDateStringFrom(post.dateCreated, "MMM d, yyyy HH:mm:ss")
 
         binding.cardText.isVisible = !post.text.isNullOrBlank()
         if (binding.cardText.isVisible) {
@@ -102,6 +101,13 @@ class PostFragment : Fragment() {
         binding.viewPager.apply {
             adapter = imagesPagerAdapter
 
+        }
+
+        binding.circleIndicator.apply {
+            setViewPager(binding.viewPager)
+            if (post.images.size > 1) {
+                createIndicators(post.images.size, 0)
+            }
         }
     }
 }
