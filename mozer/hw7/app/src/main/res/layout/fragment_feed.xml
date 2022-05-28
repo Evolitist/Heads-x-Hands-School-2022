@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="0dp"
-            app:title="Feed"
+            app:title="@string/title_feed"
             app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -40,6 +40,5 @@
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:icon="@drawable/ic_add"
-        app:iconSize="14dp" />
+        app:icon="@drawable/ic_add" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

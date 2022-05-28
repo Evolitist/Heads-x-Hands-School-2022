@@ -6,6 +6,5 @@ data class Post(
     val owner: Owner,
     val dateCreated: Long,
     val images: List<Image>,
-    val likes: Like,
-    //val comments: Int
+    val likes: Like
 )

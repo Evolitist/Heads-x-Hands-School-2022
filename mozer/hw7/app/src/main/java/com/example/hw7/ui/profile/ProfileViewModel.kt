@@ -19,7 +19,6 @@ class ProfileViewModel @Inject constructor(
     private val subscribeUseCase: SubscribeUseCase,
     private val unsubscribeUseCase: UnsubscribeUseCase,
     private val deleteUserAuthDataUseCase: DeleteUserAuthDataUseCase
-
 ) : ViewModel() {
 
     private val _profileLiveData = MutableLiveData<Profile>()

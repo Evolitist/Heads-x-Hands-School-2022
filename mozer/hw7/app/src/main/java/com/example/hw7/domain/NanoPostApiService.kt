@@ -74,12 +74,6 @@ interface NanoPostApiService {
         @Path("postId") postId: String
     ): ResultResponse
 
-    //image requests
-//    @PUT("image")  пока не нужен
-//    suspend fun uploadImage(
-//        @Body
-//    ): ApiImage
-
     @GET("image/{imageId}")
     suspend fun getImage(
         @Path("imageId") imageId: String

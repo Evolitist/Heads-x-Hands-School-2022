@@ -17,5 +17,4 @@ class ImageRepositoryImpl @Inject constructor(
     override suspend fun deleteImage(imageId: String): Boolean {
         return nanoPostApiService.deleteImage(imageId).result
     }
-
 }

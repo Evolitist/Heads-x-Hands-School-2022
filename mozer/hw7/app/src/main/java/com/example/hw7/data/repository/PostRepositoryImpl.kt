@@ -45,13 +45,6 @@ class PostRepositoryImpl @Inject constructor(
     }
 
     override suspend fun createPost(text: String?, list: List<ByteArray>?): Post {
-//        val (image0, image1, image2, image3) = list?.mapIndexed { index, it ->
-//            MultipartBody.Part.createFormData(
-//                "image${index.inc()}",
-//                "image${index.inc()}.jpg",
-//                it.toRequestBody("image/*".toMediaType())
-//            )
-//        }.orEmpty()
 
         var image0: MultipartBody.Part? = null
         list?.getOrNull(0)?.let {

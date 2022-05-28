@@ -153,12 +153,4 @@ object NetworkModule {
     fun provideNanoPostApiService(@ApiRetrofit retrofit: Retrofit): NanoPostApiService {
         return retrofit.create()
     }
-
-    @Provides
-    @Singleton
-    fun provideContentResolver(
-        @ApplicationContext context: Context
-    ): ContentResolver {
-        return context.contentResolver
-    }
 }

@@ -6,9 +6,9 @@ import javax.inject.Inject
 
 class GetContentUriUseCase @Inject constructor(
     private val contentResolver: ContentResolver
-){
+) {
 
-    operator fun invoke(uri: Uri): ByteArray{
-       return contentResolver.openInputStream(uri)!!.readBytes()
+    operator fun invoke(uri: Uri): ByteArray {
+        return contentResolver.openInputStream(uri)!!.readBytes()
     }
 }

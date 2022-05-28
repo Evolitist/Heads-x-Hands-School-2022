@@ -23,7 +23,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.PostCreateService" />
+        <service
+            android:name=".service.PostCreateService"
+            android:exported="false" />
         <service
             android:name=".service.FirebaseNotificationService"
             android:exported="false">

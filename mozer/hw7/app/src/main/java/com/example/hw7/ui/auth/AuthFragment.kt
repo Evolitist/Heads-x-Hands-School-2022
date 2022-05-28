@@ -35,7 +35,7 @@ class AuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (viewModel.haveTokenAndUserId()) {
-            findNavController().navigate(R.id.action_authFragment_to_feedFragment)
+            findNavController().navigate(AuthFragmentDirections.actionAuthFragmentToFeedFragment())
         }
 
         binding.password.isVisible = false
@@ -55,7 +55,7 @@ class AuthFragment : Fragment() {
         binding.tiPassword.actionListener(viewModel)
 
         viewModel.navigateLiveData.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_authFragment_to_feedFragment)
+            findNavController().navigate(AuthFragmentDirections.actionAuthFragmentToFeedFragment())
         }
 
         viewModel.exceptionLiveData.observe(viewLifecycleOwner) {
@@ -74,7 +74,7 @@ class AuthFragment : Fragment() {
                     binding.login.error = getString(R.string.username_contains_invalid_characters)
                 }
                 else -> {
-                    throw IllegalStateException(getString(R.string.something_went_wrong))
+                    throw IllegalStateException("Something went wrong")
                 }
             }
         }

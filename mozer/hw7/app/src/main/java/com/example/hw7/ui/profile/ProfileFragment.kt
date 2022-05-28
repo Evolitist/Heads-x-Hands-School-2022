@@ -138,7 +138,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_createPostFragment)
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToCreatePostFragment())
         }
     }
 

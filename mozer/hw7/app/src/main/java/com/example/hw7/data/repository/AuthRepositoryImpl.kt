@@ -22,5 +22,4 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun userRegistration(username: String, password: String): TokenResponse {
         return authApiService.userRegistration(AuthData(username, password))
     }
-
 }

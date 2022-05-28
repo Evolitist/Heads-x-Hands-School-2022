@@ -6,7 +6,6 @@ import com.example.hw7.data.model.TokenResponse
 import retrofit2.http.*
 
 interface AuthApiService {
-
     @GET("checkUsername")
     suspend fun getCheckUsername(
         @Query("username") username: String

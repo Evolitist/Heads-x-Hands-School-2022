@@ -44,7 +44,6 @@ class CreatePostAdapter :
 
     }
 
-
     private object ImagesItemCallback : DiffUtil.ItemCallback<Uri>() {
         override fun areItemsTheSame(oldItem: Uri, newItem: Uri): Boolean {
             return oldItem == newItem

@@ -27,8 +27,12 @@
     <string name="username_must_be_longer_than_3_characters">Username must be longer than 3 characters</string>
     <string name="username_must_shorter_than_16_characters">Username must be shorter than 16 characters</string>
     <string name="username_contains_invalid_characters">Username contains invalid characters</string>
-    <string name="something_went_wrong">Something went wrong</string>
     <string name="password_must_be_longer_than_3_characters">Password must be longer than 3 characters</string>
     <string name="password_must_be_shorter_than_16_characters">Password must be shorter than 16 characters</string>
+    <string name="title_feed">Feed</string>
+    <string name="title_create_post">New post...</string>
+    <string name="title_images">Images</string>
+    <string name="title_post">Post</string>
+    <string name="title_profile">Profile</string>
 
 </resources>

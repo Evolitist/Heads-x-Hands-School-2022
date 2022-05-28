@@ -56,6 +56,7 @@
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="14dp"
                             android:text="@string/cardTitle"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
                             android:textSize="22sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/profileImage"
@@ -69,12 +70,13 @@
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="4dp"
                             android:text="@string/subtitle"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/profileImage"
                             app:layout_constraintTop_toBottomOf="@id/profileName" />
 
-                        <View
+                        <com.google.android.material.divider.MaterialDivider
                             android:id="@+id/dividerTop"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -160,7 +162,7 @@
                             app:layout_constraintStart_toEndOf="@+id/subscribers"
                             app:layout_constraintTop_toBottomOf="@id/postsCount" />
 
-                        <View
+                        <com.google.android.material.divider.MaterialDivider
                             android:id="@+id/dividerBottom"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -248,7 +250,7 @@
                 app:layout_collapseMode="pin"
                 app:navigationIcon="@drawable/ic_arrow_back"
                 app:navigationIconTint="?attr/colorOnSurface"
-                app:title="Profile"
+                app:title="@string/title_profile"
                 app:titleCentered="true" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -274,6 +276,5 @@
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:icon="@drawable/ic_add"
-        app:iconSize="14dp" />
+        app:icon="@drawable/ic_add" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

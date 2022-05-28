@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
         binding.navigationView.setupWithNavController(navHostFragment.navController)
 
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.navigationView.isVisible = destination.id != R.id.authFragment
-            binding.navigationView.isVisible = destination.id != R.id.createPostFragment
-            binding.navigationView.isVisible = destination.id != R.id.imageFragment
+            when (destination.id) {
+                R.id.authFragment, R.id.createPostFragment, R.id.imageFragment -> binding.navigationView.isVisible = false
+                else -> binding.navigationView.isVisible = true
+            }
         }
-
     }
 }

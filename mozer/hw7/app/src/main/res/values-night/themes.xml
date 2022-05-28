@@ -29,8 +29,6 @@
         <item name="colorOutline">@color/md_theme_dark_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
-<!--        <item name="colorInversePrimary">@color/md_theme_dark_inversePrimary</item>-->
-<!--        <item name="colorShadow">@color/md_theme_dark_shadow</item>-->
         <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
     </style>
 
@@ -39,13 +37,13 @@
         <item name="cornerSizeBottomLeft">50dp</item>
         <item name="cornerSizeBottomRight">50dp</item>
     </style>
+
     <style name="Theme.Hw7.CornerSize50Percent">
         <item name="cornerSize">50%</item>
     </style>
+
     <style name="Theme.Hw7.CornerRadius">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
-
-
 </resources>
