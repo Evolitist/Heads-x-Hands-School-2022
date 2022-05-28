@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.lesson5.R
 import com.example.lesson5.data.model.CheckUsernameResult
 import com.example.lesson5.databinding.FragmentAuthBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,14 +32,19 @@ class AuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.continueButton.setOnClickListener {
-                authViewModel.authLogic(username = binding.editText.text.toString(), password = binding.editTextPass.text.toString())
-            }
+            authViewModel.authLogic(
+                username = binding.editText.text.toString(),
+                password = binding.editTextPass.text.toString()
+            )
+        }
 
         authViewModel.authLiveData.observe(viewLifecycleOwner) {
-            when(it) {
-                CheckUsernameResult.TooShort -> binding.til.error = "@string/error_tooShort"
-                CheckUsernameResult.TooLong -> binding.til.error = "@string/error_tooLong"
-                CheckUsernameResult.InvalidCharacters -> binding.til.error = "@string/error_invalidCharacters"
+            when (it) {
+                CheckUsernameResult.TooShort -> binding.til.error =
+                    R.string.error_tooShort.toString()
+                CheckUsernameResult.TooLong -> binding.til.error = R.string.error_tooLong.toString()
+                CheckUsernameResult.InvalidCharacters -> binding.til.error =
+                    R.string.error_invalidCharacters.toString()
                 CheckUsernameResult.Taken -> {
                     binding.til.isEnabled = false
                     binding.tilPass.isVisible = true

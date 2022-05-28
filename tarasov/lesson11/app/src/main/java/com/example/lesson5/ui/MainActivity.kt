@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomNav.setupWithNavController(
-            binding.navHostFragment.getFragment<NavHostFragment>().navController
+            navHostFragment.navController
         )
         navHostFragment.navController.addOnDestinationChangedListener {_, destination, _ ->
             when(destination.id) {

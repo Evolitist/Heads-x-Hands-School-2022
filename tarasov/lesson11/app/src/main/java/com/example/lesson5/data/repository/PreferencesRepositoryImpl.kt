@@ -15,12 +15,6 @@ class PreferencesRepositoryImpl @Inject constructor(
         private const val KEY_USER_ID = "user_id"
     }
 
-    override fun addUserId(userId: String) {
-        sharedPreferences.edit {
-            this.putString(KEY_USER_ID, userId)
-        }
-    }
-
     override fun getUserId(): String? {
         return sharedPreferences.getString(KEY_USER_ID, null)
     }

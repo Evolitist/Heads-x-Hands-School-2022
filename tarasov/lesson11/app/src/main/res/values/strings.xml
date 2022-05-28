@@ -31,4 +31,7 @@
     <string name="more">more</string>
     <string name="delete_post">Delete post</string>
     <string name="delete_image">Delete image</string>
+    <string name="images">Images</string>
+    <string name="post">Post</string>
+    <string name="profile">Profile</string>
 </resources>

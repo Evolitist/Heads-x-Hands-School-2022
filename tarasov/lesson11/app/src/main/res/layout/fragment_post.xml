@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             app:menu="@menu/post_toolbar"
             app:navigationIcon="@drawable/ic_nav_icon"
-            app:navigationIconTint="@color/md_theme_dark_primary"
-            app:title="Post"
+            app:title="@string/post"
             app:titleCentered="true">
 
         </com.google.android.material.appbar.MaterialToolbar>

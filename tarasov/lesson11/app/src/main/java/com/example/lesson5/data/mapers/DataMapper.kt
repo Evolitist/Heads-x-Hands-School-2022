@@ -5,39 +5,60 @@ import com.example.lesson5.model.*
 
 fun ApiProfile.toProfile(): Profile {
     return Profile(
-        id,
-        username,
-        avatarId,
-        avatarLarge,
-        avatarId,
-        avatarSmall,
-        avatarLarge,
-        subscribed,
-        subscribersCount,
-        postsCount,
-        imagesCount,
-        images.map {
+        id = id,
+        username = username,
+        displayName = displayName,
+        bio = bio,
+        avatarId = avatarId,
+        avatarLarge = avatarLarge,
+        avatarSmall = avatarSmall,
+        subscribed = subscribed,
+        subscribersCount = subscribersCount,
+        postsCount = postsCount,
+        imagesCount = imagesCount,
+        image = images.map {
             it.toImage()
         }
     )
 }
 
 fun ApiPost.toPost(): Post {
-    return Post(id, owner.toProfileCompact(), dateCreated, text, images.map {
-        it.toImage()
-    })
+    return Post(
+        id = id,
+        owner = owner.toProfileCompact(),
+        dateCreated = dateCreated,
+        text = text,
+        images = images.map {
+            it.toImage()
+        }
+    )
 }
 
 fun ApiImage.toImage(): Image {
-    return Image(id, owner.toProfileCompact(), dateCreated, sizes.map {
-        it.toImageSize()
-    })
+    return Image(
+        id = id,
+        owner = owner.toProfileCompact(),
+        dateCreated = dateCreated,
+        sizes = sizes.map {
+            it.toImageSize()
+        }
+    )
 }
 
 fun ApiImageSize.toImageSize(): ImageSize {
-    return ImageSize(width, height, url)
+    return ImageSize(
+        width = width,
+        height = height,
+        url = url
+    )
 }
 
 fun ApiProfileCompact.toProfileCompact(): ProfileCompact {
-    return ProfileCompact(id, username, displayName, avatarUrl, subscribed)
+    return ProfileCompact(
+        id = id,
+        username = username,
+        displayName = displayName,
+        avatarUrl = avatarUrl,
+        subscribed = subscribed
+    )
 }

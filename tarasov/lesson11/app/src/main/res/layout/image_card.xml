@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="4dp"
     android:layout_marginVertical="2dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,9 +18,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:text="@string/images"
-            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
             app:layout_constraintEnd_toStartOf="@id/navImages"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image1"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
@@ -53,7 +53,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image2"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
@@ -68,7 +68,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image3"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
@@ -83,7 +83,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image4"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"

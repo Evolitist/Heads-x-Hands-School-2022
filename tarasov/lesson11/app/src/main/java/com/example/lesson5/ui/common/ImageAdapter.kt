@@ -22,9 +22,8 @@ class ImageAdapter : PagingDataAdapter<Image, ImageAdapter.ImageViewHolder>(Imag
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val item = getItem(position)
-        if (item != null) {
-            holder.bind(item)
+        getItem(position)?.let {
+            holder.bind(it)
         }
     }
 
