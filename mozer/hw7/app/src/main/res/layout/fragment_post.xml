@@ -49,7 +49,6 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/cardTitle"
                 android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profileImage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +61,6 @@
                 android:layout_marginTop="4dp"
                 android:text="@string/subtitle"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/profileImage"
                 app:layout_constraintTop_toBottomOf="@id/profileName" />
@@ -83,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
-                android:textSize="16sp"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
