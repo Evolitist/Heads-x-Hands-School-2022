@@ -1,6 +1,5 @@
 package com.example.lesson6.ui
 
-import android.annotation.SuppressLint
 import android.graphics.Canvas
 import android.os.Build
 import android.os.Bundle
@@ -16,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.lesson6.R
 import com.example.lesson6.databinding.FragmentGridBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GridFragment : Fragment() {
 
     private lateinit var binding: FragmentGridBinding
@@ -32,7 +33,6 @@ class GridFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

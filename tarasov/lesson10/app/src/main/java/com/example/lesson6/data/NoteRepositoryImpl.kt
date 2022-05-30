@@ -2,9 +2,12 @@ package com.example.lesson6.data
 
 import com.example.lesson6.model.Note
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class NoteRepositoryImpl(
-    private val roomDataSource: RoomDataSource = RoomDataSource()
+class NoteRepositoryImpl @Inject constructor(
+
+    private val roomDataSource: RoomDataSource
+
 ) : NoteRepository {
 
     override fun getNotes(): Flow<List<Note>> {

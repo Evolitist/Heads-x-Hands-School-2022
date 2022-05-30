@@ -4,12 +4,15 @@ import androidx.lifecycle.*
 import com.example.lesson6.domain.DeleteNoteUseCase
 import com.example.lesson6.domain.GetNotesUseCase
 import com.example.lesson6.model.Note
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(
+@HiltViewModel
+class MainViewModel @Inject constructor(
 
-    private val getNotesUseCase: GetNotesUseCase = GetNotesUseCase(),
-    private val deleteNoteUseCase: DeleteNoteUseCase = DeleteNoteUseCase()
+    private val getNotesUseCase: GetNotesUseCase,
+    private val deleteNoteUseCase: DeleteNoteUseCase
 
 ) : ViewModel() {
 

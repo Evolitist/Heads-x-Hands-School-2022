@@ -3,7 +3,9 @@ package com.example.lesson6.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.lesson6.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {

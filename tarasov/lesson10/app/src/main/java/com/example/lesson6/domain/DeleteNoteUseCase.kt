@@ -1,13 +1,13 @@
 package com.example.lesson6.domain
 
-import com.example.lesson6.data.NoteRepository
 import com.example.lesson6.data.NoteRepositoryImpl
+import javax.inject.Inject
 
-class DeleteNoteUseCase(
-    private val noteRepository: NoteRepository =
-        NoteRepositoryImpl()
+class DeleteNoteUseCase @Inject constructor(
+
+    private val noteRepository: NoteRepositoryImpl
+
 ) {
-
     suspend operator fun invoke(id: Int) {
         return noteRepository.deleteNote(id)
     }

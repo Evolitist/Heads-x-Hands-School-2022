@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="QuickNote"
-            app:titleCentered="true">
+            app:titleCentered="true"
+            app:navigationIcon="@drawable/ic_nav_icon">
 
         </com.google.android.material.appbar.MaterialToolbar>
 

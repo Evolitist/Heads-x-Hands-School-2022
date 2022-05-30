@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lesson6.databinding.FragmentNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteBinding
@@ -29,6 +31,10 @@ class NoteFragment : Fragment() {
             viewModel.addNote(binding.inputText.text.toString()) {
                 findNavController().navigateUp()
             }
+        }
+
+        binding.toolBar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }
