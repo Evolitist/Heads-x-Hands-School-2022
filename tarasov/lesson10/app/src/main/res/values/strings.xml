@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">QuickNote</string>
+    <string name="trash_bin_icon">trash bin icon</string>
+</resources>
