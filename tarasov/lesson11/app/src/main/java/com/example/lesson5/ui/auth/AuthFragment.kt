@@ -41,15 +41,17 @@ class AuthFragment : Fragment() {
         authViewModel.authLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 CheckUsernameResult.TooShort -> binding.til.error =
-                    R.string.error_tooShort.toString()
-                CheckUsernameResult.TooLong -> binding.til.error = R.string.error_tooLong.toString()
+                    getString(R.string.error_tooShort)
+                CheckUsernameResult.TooLong -> binding.til.error = getString(R.string.error_tooLong)
                 CheckUsernameResult.InvalidCharacters -> binding.til.error =
-                    R.string.error_invalidCharacters.toString()
+                    getString(R.string.error_invalidCharacters)
                 CheckUsernameResult.Taken -> {
+                    binding.til.error = null
                     binding.til.isEnabled = false
                     binding.tilPass.isVisible = true
                 }
                 CheckUsernameResult.Free -> {
+                    binding.til.error = null
                     binding.til.isEnabled = false
                     binding.tilPass.isVisible = true
 

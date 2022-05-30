@@ -31,6 +31,6 @@ class PostViewModel @Inject constructor(
     }
 
     fun deletePost() = viewModelScope.launch {
-        postDeleteLiveData.value = deletePostUseCase.invoke(postId).result
+        postDeleteLiveData.value = deletePostUseCase.invoke(postId)
     }
 }

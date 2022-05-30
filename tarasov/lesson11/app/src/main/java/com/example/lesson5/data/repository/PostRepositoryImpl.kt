@@ -3,7 +3,6 @@ package com.example.lesson5.data.repository
 import androidx.paging.*
 import com.example.lesson5.data.NanoPostApiService
 import com.example.lesson5.data.mapers.toPost
-import com.example.lesson5.data.model.ResultResponse
 import com.example.lesson5.data.paging.StringKeyedPagingSource
 import com.example.lesson5.model.Post
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +18,7 @@ class PostRepositoryImpl @Inject constructor(
 
 ) : PostRepository {
 
-    override suspend fun getPosts(
+    override fun getPosts(
         profileId: String?,
         count: Int,
     ): Flow<PagingData<Post>> {
@@ -66,8 +65,8 @@ class PostRepositoryImpl @Inject constructor(
         ).toPost()
     }
 
-    override suspend fun deletePost(postId: String): ResultResponse {
-        return apiService.deletePost(postId)
+    override suspend fun deletePost(postId: String): Boolean {
+        return apiService.deletePost(postId).result
     }
 
 }

@@ -6,7 +6,6 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.example.lesson5.data.NanoPostApiService
 import com.example.lesson5.data.mapers.toImage
-import com.example.lesson5.data.model.ResultResponse
 import com.example.lesson5.data.paging.StringImagedPagingSource
 import com.example.lesson5.model.Image
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +17,7 @@ class ImageRepositoryImpl @Inject constructor(
     private val apiService: NanoPostApiService
 
 ) : ImageRepository {
-    override suspend fun getProfileImages(profileId: String?, count: Int
+    override fun getProfileImages(profileId: String?, count: Int
     ): Flow<PagingData<Image>> {
         return Pager(PagingConfig(pageSize = count, enablePlaceholders = false), "0") {
             StringImagedPagingSource(profileId, apiService)
@@ -33,8 +32,8 @@ class ImageRepositoryImpl @Inject constructor(
         return apiService.getImage(imageId).toImage()
     }
 
-    override suspend fun deleteImage(imageId: String): ResultResponse {
-        return apiService.deleteImage(imageId)
+    override suspend fun deleteImage(imageId: String): Boolean {
+        return apiService.deleteImage(imageId).result
     }
 
 }

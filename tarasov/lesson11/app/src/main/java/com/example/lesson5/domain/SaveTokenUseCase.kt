@@ -9,7 +9,7 @@ class SaveTokenUseCase @Inject constructor(
 
 ) {
 
-    suspend operator fun invoke(token: String, userId: String) {
+    operator fun invoke(token: String, userId: String) {
         preferencesRepository.addToken(token, userId)
     }
 

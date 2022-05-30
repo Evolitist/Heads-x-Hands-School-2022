@@ -22,7 +22,9 @@ class StringKeyedPagingSource(
         LoadResult.Page(
             response.items,
             prevKey = null,
-            nextKey = response.offset
+            nextKey = response.offset?.takeIf {
+                (it.toInt() + params.loadSize) - response.total > 0
+            }
         )
     }
 
@@ -30,7 +32,7 @@ class StringKeyedPagingSource(
         throw e
     }
     catch (e: Exception) {
-        throw e
+        LoadResult.Error(e)
     }
 
 }

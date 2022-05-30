@@ -23,7 +23,7 @@ class ImageViewModel @Inject constructor(
     lateinit var imageId: String
 
     fun deleteImage() = viewModelScope.launch {
-        imageDeleteLiveData.value = deleteImageUseCase.invoke(imageId).result
+        imageDeleteLiveData.value = deleteImageUseCase.invoke(imageId)
     }
 
     fun getImage(imageId: String) {

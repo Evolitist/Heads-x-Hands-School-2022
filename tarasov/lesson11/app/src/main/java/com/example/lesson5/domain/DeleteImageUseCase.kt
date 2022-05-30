@@ -1,6 +1,5 @@
 package com.example.lesson5.domain
 
-import com.example.lesson5.data.model.ResultResponse
 import com.example.lesson5.data.repository.ImageRepository
 import javax.inject.Inject
 
@@ -10,7 +9,7 @@ class DeleteImageUseCase @Inject constructor(
 
 ) {
 
-    suspend operator fun invoke(imageId: String): ResultResponse {
+    suspend operator fun invoke(imageId: String): Boolean {
       return  imageRepository.deleteImage(imageId)
     }
 

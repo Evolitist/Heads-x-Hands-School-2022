@@ -12,7 +12,7 @@ class GetPostsUseCase @Inject constructor(
 
 ) {
 
-    suspend operator fun invoke(
+    operator fun invoke(
         profileId: String?,
         count: Int,
     ): Flow<PagingData<Post>> {
