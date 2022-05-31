@@ -13,18 +13,4 @@ data class ApiPost(
     val text: String?,
     val images: List<ApiImage>,
     val likes: ApiLikes
-) {
-
-    fun toPost(): Post {
-        return Post(
-            id = this.id,
-            owner = this.owner.toProfileCompact(),
-            dateCreated = this.dateCreated,
-            text = this.text,
-            images = this.images.map {
-                it.toImage()
-            },
-            likes = this.likes.toLikes()
-        )
-    }
-}
+)

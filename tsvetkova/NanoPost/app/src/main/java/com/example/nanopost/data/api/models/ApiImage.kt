@@ -9,15 +9,4 @@ data class ApiImage(
     val owner: ApiProfileCompact,
     val dateCreated: Long,
     val sizes: List<ApiImageSize>
-){
-    fun toImage() : Image {
-        return Image(
-            id = this.id,
-            owner = this.owner.toProfileCompact(),
-            dateCreated = this.dateCreated,
-            sizes = this.sizes.map {
-                it.toImageSize()
-            }
-        )
-    }
-}
+)

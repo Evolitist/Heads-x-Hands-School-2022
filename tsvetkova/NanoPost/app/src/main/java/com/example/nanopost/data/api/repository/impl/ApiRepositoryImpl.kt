@@ -7,6 +7,9 @@ import androidx.paging.map
 import com.example.nanopost.data.api.ApiService
 import com.example.nanopost.data.api.models.ApiPost
 import com.example.nanopost.data.api.repository.ApiRepository
+import com.example.nanopost.data.mapper.ImageMapper
+import com.example.nanopost.data.mapper.PostMapper
+import com.example.nanopost.data.mapper.ProfileMapper
 import com.example.nanopost.data.paging.StringKeyPagingSource
 import com.example.nanopost.domain.model.Image
 import com.example.nanopost.domain.model.Post
@@ -14,18 +17,23 @@ import com.example.nanopost.domain.model.Profile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
 
 class ApiRepositoryImpl @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val postMapper: PostMapper,
+    private val profileMapper: ProfileMapper,
+    private val imageMapper: ImageMapper
 ) : ApiRepository {
 
     override suspend fun getPost(postId: String): Post {
         val apiPost = apiService.getPost(postId)
-        return apiPost.toPost()
+        return postMapper.transform(apiPost)
     }
 
     override suspend fun getFeed(): Flow<PagingData<Post>> {
@@ -38,14 +46,14 @@ class ApiRepositoryImpl @Inject constructor(
             }
         }.flow.map {
             it.map { apiPost ->
-                apiPost.toPost()
+                postMapper.transform(apiPost)
             }
         }
     }
 
     override suspend fun getProfile(profileId: String): Profile {
         val apiProfile = apiService.getProfile(profileId)
-        return apiProfile.toProfile()
+        return profileMapper.transform(apiProfile)
     }
 
     override suspend fun getPosts(
@@ -59,7 +67,7 @@ class ApiRepositoryImpl @Inject constructor(
             }
         }.flow.map {
             it.map { apiPost ->
-                apiPost.toPost()
+                postMapper.transform(apiPost)
             }
         }
 
@@ -77,22 +85,22 @@ class ApiRepositoryImpl @Inject constructor(
            }
        }.flow.map {
            it.map { apiImage ->
-               apiImage.toImage()
+               imageMapper.transform(apiImage)
            }
        }
     }
 
     override suspend fun getImage(imageId: String): Image {
        val apiImage = apiService.getImage(imageId)
-        return apiImage.toImage()
+        return imageMapper.transform(apiImage)
     }
 
     override suspend fun createPost(text: String?, images: List<ByteArray>?): Post {
         val image1 = images?.getOrNull(0)?.let {
             MultipartBody.Part.createFormData(
                 "image1",
-                "image1.jpg",// полное название файла
-                RequestBody.create(MediaType.parse("image/jpg"), it)
+                "image1.jpg",
+                it.toRequestBody("image/jpg".toMediaType())
             )
         }
 
@@ -100,7 +108,7 @@ class ApiRepositoryImpl @Inject constructor(
             MultipartBody.Part.createFormData(
                 "image2",
                 "image2.jpg",
-                RequestBody.create(MediaType.parse("image/jpg"), it)
+                it.toRequestBody("image/jpg".toMediaType())
             )
         }
 
@@ -108,7 +116,7 @@ class ApiRepositoryImpl @Inject constructor(
             MultipartBody.Part.createFormData(
                 "image3",
                 "image3.jpg",
-                RequestBody.create(MediaType.parse("image/jpg"), it)
+                it.toRequestBody("image/jpg".toMediaType())
             )
         }
 
@@ -116,18 +124,18 @@ class ApiRepositoryImpl @Inject constructor(
             MultipartBody.Part.createFormData(
                 "image4",
                 "image4.jpg",
-                RequestBody.create(MediaType.parse("image/jpg"), it)
+                it.toRequestBody("image/jpg".toMediaType())
             )
         }
 
         val apiPost = apiService.createPost(
-            text?.let { RequestBody.create(MediaType.parse("text/plain"), it) },
+             text?.toRequestBody(),
             image1,
             image2,
             image3,
             image4
         )
-        return apiPost.toPost()
+        return postMapper.transform(apiPost)
     }
 
     override suspend fun deletePost(postId: String): Boolean {

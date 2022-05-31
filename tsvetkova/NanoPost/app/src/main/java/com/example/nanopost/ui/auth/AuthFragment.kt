@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.nanopost.NavGraphDirections
 import com.example.nanopost.R
 import com.example.nanopost.data.api.models.CheckUsernameResult
 import com.example.nanopost.databinding.FragmentAuthBinding
@@ -33,8 +34,8 @@ class AuthFragment : Fragment() {
 
         binding.buttonContinue.setOnClickListener {
             viewModel.checkResult(
-                binding.inputUsername.text.toString() ?: "",
-                binding.inputPassword.text.toString() ?: ""
+                binding.inputUsername.text.toString() ,
+                binding.inputPassword.text.toString()
             )
         }
 
@@ -57,7 +58,8 @@ class AuthFragment : Fragment() {
         }
 
         viewModel.navigateLiveData.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.feedFragment)
+            val action = AuthFragmentDirections.actionAuthFragmentToFeedFragment()
+            findNavController().navigate(action)
         }
     }
 }

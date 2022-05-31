@@ -18,23 +18,4 @@ data class ApiProfile(
     val postsCount: Int,
     val imagesCount: Int,
     val images: List<ApiImage>
-) {
-    fun toProfile(): Profile {
-        return Profile(
-            id = this.id,
-            username = this.username,
-            displayName = this.displayName,
-            bio = this.bio,
-            avatarId = this.avatarId,
-            avatarSmall = this.avatarSmall,
-            avatarLarge = this.avatarLarge,
-            subscribed = this.subscribed,
-            subscribersCount = this.subscribersCount,
-            postsCount = this.postsCount,
-            imagesCount = this.imagesCount,
-            images = this.images.map {
-                it.toImage()
-            }
-        )
-    }
-}
+)

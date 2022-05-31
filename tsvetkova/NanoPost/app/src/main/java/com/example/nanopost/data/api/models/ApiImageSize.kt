@@ -8,10 +8,4 @@ data class ApiImageSize(
     val height: Int,
     val width: Int,
     val url: String
-){
-    fun toImageSize() = ImageSize(
-        height = this.height,
-        width = this.width,
-        url = this.url
-    )
-}
+)

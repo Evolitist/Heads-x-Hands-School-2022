@@ -40,8 +40,8 @@ class PostFragment : Fragment() {
 
         viewModel.getPost(args.postId)
 
-        binding.postRecycler.adapter.apply {
-            imageAdapter.apply {
+        binding.postRecycler.apply {
+            adapter = imageAdapter.apply {
                 setOnImageClick {
                     val action = NavGraphDirections.actionGlobalImage(it.id)
                     findNavController().navigate(action)

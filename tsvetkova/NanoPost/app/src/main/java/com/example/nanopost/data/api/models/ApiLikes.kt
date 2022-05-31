@@ -7,6 +7,4 @@ import com.squareup.moshi.JsonClass
 data class ApiLikes(
     val liked: Boolean,
     val likesCount: Int
-){
-    fun toLikes() = Likes(liked = this.liked, likesCount = this.likesCount)
-}
+)

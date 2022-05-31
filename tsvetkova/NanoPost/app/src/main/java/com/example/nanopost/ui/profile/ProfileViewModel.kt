@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.nanopost.data.api.PageDataResponse
+import com.example.nanopost.domain.model.Image
 import com.example.nanopost.domain.model.Post
 import com.example.nanopost.domain.model.Profile
 import com.example.nanopost.domain.usecases.GetPostsUseCase
@@ -26,9 +27,14 @@ class ProfileViewModel @Inject constructor(
 
     val postsLiveData = MutableLiveData<PagingData<Post>>()
 
-    fun init(profileId: String?){
+    fun init(profileId: String?) {
         getProfile(profileId)
         getPosts(profileId)
+    }
+
+    fun onImageClick(index: Int,callback: (Image) -> Unit) {
+        val image = profileLiveData.value?.images?.get(index) ?: error("Image is null")
+        callback.invoke(image)
     }
 
     private fun getProfile(profileId: String?) {

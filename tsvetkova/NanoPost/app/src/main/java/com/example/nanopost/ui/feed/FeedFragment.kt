@@ -67,17 +67,3 @@ class FeedFragment : Fragment() {
     }
 }
 
-
-//    private fun applyTopWindowInsets(view: View) {
-//        val initialPadding = view.paddingTop
-//        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-//            v.updatePadding(
-//                top = initialPadding + insets.getInsets(
-//                    WindowInsetsCompat.Type.statusBars()
-//                ).top
-//            )
-//            WindowInsetsCompat.Builder()
-//                .setInsets(WindowInsetsCompat.Type.statusBars(), Insets.NONE).build()//CONSUMED
-//        }
-//        view.requestApplyInsets()
-//    }

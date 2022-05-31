@@ -1,5 +1,6 @@
 package com.example.nanopost.di
 
+import android.util.Log
 import com.example.nanopost.data.PrefsRepository
 import com.example.nanopost.data.api.ApiService
 import com.example.nanopost.data.api.AuthService
@@ -10,10 +11,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import java.lang.IllegalStateException
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -44,6 +47,7 @@ object NetworkModule {
                     .build()
                 it.proceed(newRequest)
             }
+            .addInterceptor(HttpLoggingInterceptor { message -> Log.d("OkHttpLogger", message) })
             .build()
     }
 

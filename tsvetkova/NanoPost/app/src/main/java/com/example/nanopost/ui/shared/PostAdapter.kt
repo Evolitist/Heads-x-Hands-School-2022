@@ -70,7 +70,7 @@ class PostAdapter(
             }
 
             viewBinding.image.setOnClickListener {
-                onImageClick(item.images[0])
+                onImageClick(item.images.first())
             }
         }
     }

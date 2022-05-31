@@ -10,15 +10,4 @@ data class ApiProfileCompact(
     val displayName: String?,
     val avatarUrl: String?,
     val subscribed: Boolean
-){
-    fun toProfileCompact(): ProfileCompact {
-        return ProfileCompact(
-            id = this.id,
-            username =this.username,
-            displayName = this.displayName,
-            avatarUrl = this.avatarUrl,
-            subscribed = this.subscribed
-
-            )
-    }
-}
+)
