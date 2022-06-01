@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.lesson5.R
 import com.example.lesson5.databinding.ActivityMainBinding
-import com.example.lesson5.ui.auth.AuthFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
